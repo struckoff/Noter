@@ -1,8 +1,10 @@
 package com.example.Notes;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -13,13 +15,12 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        final FragmentManager fm = getFragmentManager();
         final Context self = this;
         final Button addButton = (Button) findViewById(R.id.addButton);
         final Button clearButton = (Button) findViewById(R.id.clearButton);
-//        final TextView text = (TextView) findViewById(R.id.text);
         final LinearLayout main_lay = (LinearLayout) findViewById(R.id.main_lay);
         final NoteDb notedb = new NoteDb(this);
-//        text.setText(notedb.getNote("title = ?", "hw").printfy());
 
         addButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -28,12 +29,18 @@ public class MainActivity extends Activity {
                 note.title = "hw";
                 note.text = this.toString();
                 notedb.addNote(note);
-//                text.setText(notedb.getNotes());
 
                 NoteItemView noteItem = new NoteItemView(self);
                 note = notedb.getNote("title = ?", "hw");
                 main_lay.addView(noteItem);
                 noteItem.setData(note.title, note.timestamp, note.text, note._id.toString());
+                noteItem.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        NoteDialogView dialog = (new NoteDialogView()).newInstance();
+                        dialog.show(getFragmentManager(), "dialog");
+                    }
+                });
 
             }
         });
@@ -41,12 +48,18 @@ public class MainActivity extends Activity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 notedb.clearNotes();
-//                text.setText(notedb.getNotes());
-
                 return false;
             }
         });
 
+    }
+
+    public void doPositiveClick() {
+        Log.d("Dialog HW", "Positive");
+    }
+
+    public void doNegativeClick() {
+        Log.d("Dialog HW", "Negative");
     }
 }
 

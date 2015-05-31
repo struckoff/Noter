@@ -14,6 +14,7 @@ public class NoteItemView extends FrameLayout {
     private TextView text;
     private TextView date;
     private TextView id;
+    private Note note;
 
     public NoteItemView(Context context){
         super(context);
@@ -37,13 +38,19 @@ public class NoteItemView extends FrameLayout {
     }
 
     public void setData(String title, Date date, String text, String id){
-//        this.date.setText(Integer.toString(date.compareTo(new Date())));
-        this.date.setText(this.dataFromat(date));
+        this.date.setText(this.dataFormat(date));
         this.title.setText(title);
         this.text.setText(text);
     }
 
-    private String dataFromat(Date date){
+    public void setBody(Note note){
+        this.note = note;
+        this.date.setText(this.dataFormat(note.timestamp));
+        this.title.setText(note.title);
+        this.text.setText(note.text);
+    }
+
+    private String dataFormat(Date date){
         Calendar cal[] = {Calendar.getInstance(), Calendar.getInstance()};
         cal[0].setTime(new Date());
         cal[1].setTime(date);
@@ -64,5 +71,4 @@ public class NoteItemView extends FrameLayout {
         }
         return (new SimpleDateFormat(formater).format(date));
     }
-
 }

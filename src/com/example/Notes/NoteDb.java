@@ -3,8 +3,9 @@ package com.example.Notes;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
 import nl.qbusict.cupboard.QueryResultIterable;
+
+import java.util.List;
 
 import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
@@ -33,13 +34,13 @@ public class NoteDb{
         db.execSQL("DELETE FROM " + Note.class.getSimpleName());
     }
 
-    public String getNotes() {
-        String result;
+    public List<Note> getNotes() {
+        List<Note> result;
         Cursor notes = cupboard().withDatabase(this.db).query(Note.class).getCursor();
         QueryResultIterable<Note> itr = null;
         try {
             itr = cupboard().withCursor(notes).iterate(Note.class);
-            result = TextUtils.join("\n", itr);
+            result = itr.list();
         } finally {
             itr.close();
         }

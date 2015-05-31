@@ -6,6 +6,8 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 public class NoteDialogView extends DialogFragment {
 
@@ -16,12 +18,23 @@ public class NoteDialogView extends DialogFragment {
         return frag;
     }
 
+    public static NoteDialogView newInstance(NoteItemView noteItem) {
+        NoteDialogView frag = new NoteDialogView();
+        Bundle args = new Bundle();
+        frag.setArguments(args);
+        return frag;
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        View main_lay = getActivity().getLayoutInflater().inflate(R.layout.notedialog, null);
+        final TextView title = (TextView) main_lay.findViewById(R.id.edit_note_title);
+
         return new AlertDialog.Builder(getActivity())
                 .setPositiveButton("Yep",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
+                                Log.d("CB", title.getText().toString());
                                 doPositiveClick();
                             }
                         }
@@ -33,6 +46,7 @@ public class NoteDialogView extends DialogFragment {
                             }
                         }
                 )
+                .setView(main_lay)
                 .create();
     }
 

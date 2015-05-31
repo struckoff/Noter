@@ -4,11 +4,12 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import java.util.Date;
 
 public class MainActivity extends Activity {
     @Override
@@ -25,23 +26,25 @@ public class MainActivity extends Activity {
         addButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view) {
-                Note note = new Note();
-                note.title = "hw";
-                note.text = this.toString();
-                notedb.addNote(note);
+                Note newNote = new Note();
+                newNote.title = (new Date()).toString();
+                newNote.text = this.toString();
+                notedb.addNote(newNote);
 
-                NoteItemView noteItem = new NoteItemView(self);
-                note = notedb.getNote("title = ?", "hw");
-                main_lay.addView(noteItem);
-                noteItem.setData(note.title, note.timestamp, note.text, note._id.toString());
-                noteItem.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View view) {
-                        NoteDialogView dialog = (new NoteDialogView()).newInstance();
-                        dialog.show(getFragmentManager(), "dialog");
-                    }
-                });
+                for (Note note:notedb.getNotes()) {
+                    final NoteItemView noteItem = new NoteItemView(self);
+//                    note = notedb.getNote("title = ?", "hw");
+                    main_lay.addView(noteItem);
+                    noteItem.setData(note.title, note.timestamp, note.text, note._id.toString());
+                    noteItem.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            NoteDialogView dialog = (new NoteDialogView()).newInstance(noteItem);
+                            dialog.show(getFragmentManager(), "dialog");
+                        }
+                    });
 
+                }
             }
         });
         clearButton.setOnTouchListener(new View.OnTouchListener() {
@@ -52,14 +55,6 @@ public class MainActivity extends Activity {
             }
         });
 
-    }
-
-    public void doPositiveClick() {
-        Log.d("Dialog HW", "Positive");
-    }
-
-    public void doNegativeClick() {
-        Log.d("Dialog HW", "Negative");
     }
 }
 

@@ -26,8 +26,6 @@ public class NoteItemView extends FrameLayout {
     }
     public NoteItemView(Context context, AttributeSet attrs, int defStyle){
         super(context, attrs, defStyle);
-//        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NoteItemWidget);
-//        this.setBackgroundColor(a.getColor(R.styleable.NoteItemWidget_clr, 0));
         init();
     }
     private void init(){
@@ -38,17 +36,23 @@ public class NoteItemView extends FrameLayout {
     }
 
     public void setData(String title, Date date, String text, String id){
-        this.date.setText(this.dataFormat(date));
+        this.setDate(date);
+        this.setText(text);
+        this.setTitle(title);
+    }
+
+    public void setTitle(String title){
         this.title.setText(title);
+    }
+
+    public void setText(String text){
         this.text.setText(text);
     }
 
-    public void setBody(Note note){
-        this.note = note;
-        this.date.setText(this.dataFormat(note.timestamp));
-        this.title.setText(note.title);
-        this.text.setText(note.text);
+    public void setDate(Date date){
+        this.date.setText(this.dataFormat(date));
     }
+
 
     private String dataFormat(Date date){
         Calendar cal[] = {Calendar.getInstance(), Calendar.getInstance()};

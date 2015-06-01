@@ -11,5 +11,5 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edit_note_title" android:layout_weight="0.07"/>
+            android:id="@+id/edit_note_text" android:layout_weight="0.07"/>
 </LinearLayout>

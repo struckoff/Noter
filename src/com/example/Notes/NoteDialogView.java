@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 public class NoteDialogView extends DialogFragment {
 
+    private static NoteItemView note = null;
+
     public static NoteDialogView newInstance() {
         NoteDialogView frag = new NoteDialogView();
         Bundle args = new Bundle();
@@ -20,6 +22,7 @@ public class NoteDialogView extends DialogFragment {
 
     public static NoteDialogView newInstance(NoteItemView noteItem) {
         NoteDialogView frag = new NoteDialogView();
+        note = noteItem;
         Bundle args = new Bundle();
         frag.setArguments(args);
         return frag;
@@ -29,6 +32,10 @@ public class NoteDialogView extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         View main_lay = getActivity().getLayoutInflater().inflate(R.layout.notedialog, null);
         final TextView title = (TextView) main_lay.findViewById(R.id.edit_note_title);
+        final TextView text = (TextView) main_lay.findViewById(R.id.edit_note_text);
+
+        title.setText(note.getTitle());
+        text.setText(note.getText());
 
         return new AlertDialog.Builder(getActivity())
                 .setPositiveButton("Yep",

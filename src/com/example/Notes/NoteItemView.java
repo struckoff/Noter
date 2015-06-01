@@ -16,6 +16,11 @@ public class NoteItemView extends FrameLayout {
     private TextView id;
     private Note note;
 
+    private String title_raw;
+    private String text_raw;
+    private Date date_raw;
+    private int id_raw;
+
     public NoteItemView(Context context){
         super(context);
         init();
@@ -43,16 +48,29 @@ public class NoteItemView extends FrameLayout {
 
     public void setTitle(String title){
         this.title.setText(title);
+        this.title_raw = title;
     }
 
     public void setText(String text){
         this.text.setText(text);
+        this.text_raw = text;
     }
 
     public void setDate(Date date){
         this.date.setText(this.dataFormat(date));
+        this.date_raw = date;
     }
 
+    public String getTitle(){
+        return this.title_raw;
+    }
+
+    public String getText(){
+        return this.text_raw;
+    }
+    public Date getDate(){
+        return this.date_raw;
+    }
 
     private String dataFormat(Date date){
         Calendar cal[] = {Calendar.getInstance(), Calendar.getInstance()};

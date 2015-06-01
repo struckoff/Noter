@@ -25,9 +25,6 @@
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent" android:id="@+id/main_lay">
-            <view android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  class="com.example.Notes.NoteItemView" android:id="@+id/view"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

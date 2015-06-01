@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick (View view) {
                 NoteCreateDialogView dialog = (new NoteCreateDialogView()).newInstance();
-                dialog.show(getFragmentManager(), "dialog");
+                dialog.show(getFragmentManager(), "createDialog");
 
             }
         });
@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 NoteEditDialogView dialog = (new NoteEditDialogView()).newInstance(noteItem);
-                dialog.show(getFragmentManager(), "dialog");
+                dialog.show(getFragmentManager(), "editDialog");
             }
         });
     }

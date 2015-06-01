@@ -6,6 +6,7 @@ import android.app.DialogFragment;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.TextView;
 
@@ -30,7 +31,7 @@ public class NoteEditDialogView extends DialogFragment {
         title.setText(note.getTitle());
         text.setText(note.getText());
 
-        return new AlertDialog.Builder(getActivity())
+        return new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.NoteDialogStyle))
                 .setPositiveButton("Save",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {

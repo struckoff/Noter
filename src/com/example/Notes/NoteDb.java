@@ -1,5 +1,6 @@
 package com.example.Notes;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,8 +19,8 @@ public class NoteDb{
         this.db = dbHelper.getWritableDatabase();
     }
 
-    public void addNote(Note note){
-        cupboard().withDatabase(this.db).put(note);
+    public long addNote(Note note){
+        return cupboard().withDatabase(this.db).put(note);
     }
 
     public Note getNote(String selector, String key){
@@ -45,5 +46,9 @@ public class NoteDb{
             itr.close();
         }
         return result;
+    }
+
+    public void updateNotes(Long id, ContentValues values){
+        cupboard().withDatabase(this.db).update(Note.class, values, "_id = ?", String.valueOf(id));
     }
 }

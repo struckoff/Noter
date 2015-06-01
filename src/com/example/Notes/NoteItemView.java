@@ -13,13 +13,11 @@ public class NoteItemView extends FrameLayout {
     private TextView title;
     private TextView text;
     private TextView date;
-    private TextView id;
-    private Note note;
 
     private String title_raw;
     private String text_raw;
     private Date date_raw;
-    private int id_raw;
+    private Long id_raw;
 
     public NoteItemView(Context context){
         super(context);
@@ -40,10 +38,11 @@ public class NoteItemView extends FrameLayout {
         this.text = (TextView) findViewById(R.id.note_text);
     }
 
-    public void setData(String title, Date date, String text, String id){
+    public void setData(String title, Date date, String text, Long id){
         this.setDate(date);
         this.setText(text);
         this.setTitle(title);
+        this.id_raw = id;
     }
 
     public void setTitle(String title){
@@ -70,6 +69,10 @@ public class NoteItemView extends FrameLayout {
     }
     public Date getDate(){
         return this.date_raw;
+    }
+
+    public long getItemId(){
+        return this.id_raw;
     }
 
     private String dataFormat(Date date){

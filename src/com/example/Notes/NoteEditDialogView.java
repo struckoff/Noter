@@ -3,25 +3,18 @@ package com.example.Notes;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-public class NoteDialogView extends DialogFragment {
+public class NoteEditDialogView extends DialogFragment {
 
     private static NoteItemView note = null;
 
-    public static NoteDialogView newInstance() {
-        NoteDialogView frag = new NoteDialogView();
-        Bundle args = new Bundle();
-        frag.setArguments(args);
-        return frag;
-    }
-
-    public static NoteDialogView newInstance(NoteItemView noteItem) {
-        NoteDialogView frag = new NoteDialogView();
+    public static NoteEditDialogView newInstance(NoteItemView noteItem) {
+        NoteEditDialogView frag = new NoteEditDialogView();
         note = noteItem;
         Bundle args = new Bundle();
         frag.setArguments(args);
@@ -38,31 +31,26 @@ public class NoteDialogView extends DialogFragment {
         text.setText(note.getText());
 
         return new AlertDialog.Builder(getActivity())
-                .setPositiveButton("Yep",
+                .setPositiveButton("Save",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                Log.d("CB", title.getText().toString());
-                                doPositiveClick();
+                                note.setTitle(title.getText().toString());
+                                note.setText(text.getText().toString());
+                                ContentValues values = new ContentValues(2);
+                                values.put("title", title.getText().toString());
+                                values.put("text", text.getText().toString());
+                                ((MainActivity) getActivity()).notedb.updateNotes(note.getItemId(), values);
                             }
                         }
                 )
-                .setNegativeButton("Nope",
+                .setNegativeButton("Cancel",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                doNegativeClick();
                             }
                         }
                 )
                 .setView(main_lay)
                 .create();
     }
-
-    private void doNegativeClick() {
-        Log.d("dialog", "Neg");
-    }
-
-    private void doPositiveClick() {
-        Log.d("dialog", "Pos");
-    }
-
 }
+

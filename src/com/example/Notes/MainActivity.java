@@ -1,7 +1,9 @@
 package com.example.Notes;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -25,7 +27,6 @@ public class MainActivity extends Activity {
             public void onClick (View view) {
                 NoteCreateDialogView dialog = (new NoteCreateDialogView()).newInstance();
                 dialog.show(getFragmentManager(), "createDialog");
-
             }
         });
 
@@ -41,12 +42,24 @@ public class MainActivity extends Activity {
 
     public void addNoteToScreen(Note note){
         final NoteItemView noteItem = new NoteItemView(this);
+        final Context self = this;
         LinearLayout main_lay = (LinearLayout) findViewById(R.id.main_lay);
         main_lay.addView(noteItem);
         noteItem.setData(note.title, note.timestamp, note.text, note._id);
-        noteItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        noteItem.setOnTouchListener(new OnSwipeTouchListener(self) {
+            public void onSwipeLeft() {
+                super.onSwipeLeft();
+                Log.d("swipe", "left " + noteItem.getX());
+                noteItem.animate().translationX(-300);
+            }
+
+            public void onSwipeRight() {
+                super.onSwipeRight();
+                noteItem.animate().translationX(0);
+            }
+
+            public void onClick() {
+                super.onClick();
                 NoteEditDialogView dialog = (new NoteEditDialogView()).newInstance(noteItem);
                 dialog.show(getFragmentManager(), "editDialog");
             }
@@ -54,4 +67,3 @@ public class MainActivity extends Activity {
     }
 
 }
-

@@ -29,4 +29,9 @@
             android:text="New Text"
             android:id="@+id/note_date"
             android:layout_alignParentBottom="true" android:layout_alignParentEnd="true"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button" android:layout_alignTop="@+id/note_title" android:layout_alignParentEnd="true"/>
 </RelativeLayout>

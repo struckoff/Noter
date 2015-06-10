@@ -61,7 +61,6 @@ public class MainActivity extends Activity {
                 super.onSwipeRight();
                 noteItem.front.animate().translationX(0);
                 Log.d("swipe", "right " + noteItem.front.getX());
-
             }
 
             public void onClick() {

@@ -2,11 +2,11 @@ package com.example.Notes;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -23,11 +23,12 @@ public class NoteItemView extends FrameLayout {
     private Date date_raw;
     private Long id_raw;
 
-    public LinearLayout front = null;
+    public FrameLayout front = null;
     public FrameLayout back = null;
     public FrameLayout delete_lay = null;
 
     private ImageButton delete_btn = null;
+    private ImageButton share_btn = null;
     private ImageButton restore_btn = null;
 
     public NoteItemView(Context context){
@@ -47,10 +48,11 @@ public class NoteItemView extends FrameLayout {
         this.title = (TextView) findViewById(R.id.note_title);
         this.date = (TextView) findViewById(R.id.note_date);
         this.text = (TextView) findViewById(R.id.note_text);
-        this.front = (LinearLayout) findViewById(R.id.ll_front);
+        this.front = (FrameLayout) findViewById(R.id.ll_front);
         this.back = (FrameLayout) findViewById(R.id.ll_back);
         this.delete_lay = (FrameLayout) findViewById(R.id.ll_delete);
         this.delete_btn = (ImageButton) findViewById(R.id.delete_btn);
+        this.share_btn = (ImageButton) findViewById(R.id.share_button);
         this.restore_btn = (ImageButton) findViewById(R.id.restore_btn);
 
         final NoteItemView self = this;
@@ -70,6 +72,19 @@ public class NoteItemView extends FrameLayout {
             }
         });
 
+        this.share_btn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                self.front.animate().translationX(0);
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareTitle = self.getTitle();
+                String shareBody = self.getText();
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareTitle);
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                ((MainActivity) getContext()).startActivity(Intent.createChooser(sharingIntent, "Share via ..."));
+            }
+        });
     }
 
     public void setData(String title, Date date, String text, Long id){

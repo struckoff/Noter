@@ -3,4 +3,5 @@
     <color name="noteItem_front_background">#000</color>
     <color name="noteItem_back_background">#000</color>
     <color name="noteItem_background">#EEE</color>
+    <color name="noteItem_delete_background">#88676767</color>
 </resources>

@@ -19,7 +19,11 @@ public class MainActivity extends Activity {
         notedb = new NoteDb(this);
 
         for (Note note : notedb.getNotes()) {
-            addNoteToScreen(note);
+            if (note.state.equals("delete")) {
+                removeNote(note);
+            } else {
+                addNoteToScreen(note);
+            }
         }
 
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -68,10 +72,8 @@ public class MainActivity extends Activity {
         });
     }
 
-    public void removeNote(NoteItemView noteItem) {
-        LinearLayout main_lay = (LinearLayout) findViewById(R.id.main_lay);
-        main_lay.removeView(noteItem);
-        notedb.deleteNote(noteItem.getItemId());
+    public void removeNote(Note note) {
+        notedb.deleteNote(note._id);
     }
 
 }

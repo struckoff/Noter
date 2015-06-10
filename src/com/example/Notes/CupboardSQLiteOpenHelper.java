@@ -8,7 +8,7 @@ import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
 public class CupboardSQLiteOpenHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Notes.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     static {
         cupboard().register(Note.class);

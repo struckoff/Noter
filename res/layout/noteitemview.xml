@@ -66,4 +66,14 @@
                 android:layout_alignParentBottom="true" android:layout_alignParentEnd="true"
                 android:layout_gravity="right"/>
     </LinearLayout>
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:id="@+id/ll_delete"
+            android:background="@color/noteItem_delete_background" android:alpha="10" android:visibility="gone">
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/restore_btn" android:layout_gravity="center"
+                android:src="@drawable/ic_delete_white_48pt"/>
+    </FrameLayout>
 </RelativeLayout>

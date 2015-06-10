@@ -1,5 +1,6 @@
 package com.example.Notes;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -24,8 +25,10 @@ public class NoteItemView extends FrameLayout {
 
     public LinearLayout front = null;
     public FrameLayout back = null;
+    public FrameLayout delete_lay = null;
 
     private ImageButton delete_btn = null;
+    private ImageButton restore_btn = null;
 
     public NoteItemView(Context context){
         super(context);
@@ -46,14 +49,24 @@ public class NoteItemView extends FrameLayout {
         this.text = (TextView) findViewById(R.id.note_text);
         this.front = (LinearLayout) findViewById(R.id.ll_front);
         this.back = (FrameLayout) findViewById(R.id.ll_back);
+        this.delete_lay = (FrameLayout) findViewById(R.id.ll_delete);
         this.delete_btn = (ImageButton) findViewById(R.id.delete_btn);
+        this.restore_btn = (ImageButton) findViewById(R.id.restore_btn);
 
         final NoteItemView self = this;
 
         this.delete_btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity) getContext()).removeNote(self);
+                self.front.animate().translationX(0);
+                self.setState("delete");
+            }
+        });
+
+        this.restore_btn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                self.setState("active");
             }
         });
 
@@ -79,6 +92,19 @@ public class NoteItemView extends FrameLayout {
     public void setDate(Date date){
         this.date.setText(this.dataFormat(date));
         this.date_raw = date;
+    }
+
+    public void setState(String state) {
+        ContentValues values = new ContentValues(1);
+        values.put("state", state);
+        ((MainActivity) getContext()).notedb.updateNotes(this.getItemId(), values);
+
+        if (state.equals("delete")) {
+            this.delete_lay.setVisibility(View.VISIBLE);
+        } else if (state.equals("active")) {
+            this.delete_lay.setVisibility(View.GONE);
+        }
+
     }
 
     public String getTitle(){

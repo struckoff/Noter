@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="noteItem_front_background">#000</color>
+    <color name="noteItem_back_background">#000</color>
+    <color name="noteItem_background">#EEE</color>
+</resources>

@@ -51,4 +51,9 @@ public class NoteDb{
     public void updateNotes(Long id, ContentValues values){
         cupboard().withDatabase(this.db).update(Note.class, values, "_id = ?", String.valueOf(id));
     }
+
+    public void deleteNote(Long id) {
+        cupboard().withDatabase(this.db).delete(Note.class, "_id = ?", String.valueOf(id));
+    }
+
 }

@@ -11,7 +11,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" android:id="@+id/ll_back"
             android:background="@null"
-            android:weightSum="1">
+            android:weightSum="1" android:visibility="gone">
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/struckoff/Projects/idea/Notes/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="noteItem_back_background">#EEE</color>
+    <color name="noteItem_background">#EEE</color>
+    <color name="noteItem_delete_background">#88676767</color>
+    <color name="noteItem_front_background">#000</color>
+    <!-- From: file:/home/struckoff/Projects/idea/Notes/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">Notes</string>
+    <!-- From: file:/home/struckoff/Projects/idea/Notes/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="NoteDialogStyle" parent="@android:style/Theme.Material.Light">
+        <!--<item name="android:background">#fff</item>-->
+        <!--<item name="android:textColor">#b00</item>-->
+    </style>
+</resources>

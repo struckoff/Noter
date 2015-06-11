@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/struckoff/Projects/idea/Notes/build/intermediates/exploded-aar/com.oguzdev/CircularFloatingActionMenu/1.0.2/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="607d961caf1a59b6e782724654c1f3229e036c20">
+        <dex dex="/home/struckoff/Projects/idea/Notes/build/intermediates/pre-dexed/debug/classes-791f4785f705d2671e1c7ae896ff6c7e81e345a7.jar" />
+    </item>
+    <item
+        jar="/media/D/.gradle/caches/modules-2/files-2.1/nl.qbusict/cupboard/2.1.1/395956a5e113e5eb4bc4618232d706880c5110fa/cupboard-2.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="395956a5e113e5eb4bc4618232d706880c5110fa">
+        <dex dex="/home/struckoff/Projects/idea/Notes/build/intermediates/pre-dexed/debug/cupboard-2.1.1-b0247527aea8e98e737334d1ecbe54b85815643c.jar" />
+    </item>
+
+</items>

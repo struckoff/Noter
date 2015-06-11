@@ -55,5 +55,4 @@ public class NoteDb{
     public void deleteNote(Long id) {
         cupboard().withDatabase(this.db).delete(Note.class, "_id = ?", String.valueOf(id));
     }
-
 }

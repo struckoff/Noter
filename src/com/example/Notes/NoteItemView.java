@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+
 public class NoteItemView extends FrameLayout {
     private TextView title;
     private TextView text;
@@ -32,6 +33,7 @@ public class NoteItemView extends FrameLayout {
     private ImageButton delete_btn = null;
     private ImageButton share_btn = null;
     private ImageButton restore_btn = null;
+
 
     public NoteItemView(Context context){
         super(context);

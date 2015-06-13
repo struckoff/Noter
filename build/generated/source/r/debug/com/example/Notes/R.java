@@ -13,83 +13,161 @@ public final class R {
         public static final int animation_leave=0x7f040001;
     }
     public static final class attr {
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fab_colorDisabled=0x7f010003;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fab_colorNormal=0x7f010001;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fab_colorPressed=0x7f010000;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fab_colorRipple=0x7f010002;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fab_shadow=0x7f010004;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>normal</code></td><td>0</td><td></td></tr>
+<tr><td><code>mini</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int fab_type=0x7f010005;
     }
     public static final class color {
-        public static final int noteItem_back_background=0x7f050000;
-        public static final int noteItem_background=0x7f050001;
-        public static final int noteItem_delete_background=0x7f050002;
-        public static final int noteItem_front_background=0x7f050003;
+        public static final int material_blue_500=0x7f050000;
+        public static final int noteItem_back_background=0x7f050001;
+        public static final int noteItem_background=0x7f050002;
+        public static final int noteItem_delete_background=0x7f050003;
+        public static final int noteItem_front_background=0x7f050004;
+    }
+    public static final class dimen {
+        public static final int fab_elevation_lollipop=0x7f060000;
+        public static final int fab_scroll_threshold=0x7f060001;
+        public static final int fab_shadow_size=0x7f060002;
+        public static final int fab_size_mini=0x7f060003;
+        public static final int fab_size_normal=0x7f060004;
     }
     public static final class drawable {
         public static final int circle_plus_128=0x7f020000;
-        public static final int ic_add_circle_black_18dp=0x7f020001;
-        public static final int ic_add_circle_black_24dp=0x7f020002;
-        public static final int ic_add_circle_black_36dp=0x7f020003;
-        public static final int ic_add_circle_black_48dp=0x7f020004;
-        public static final int ic_add_circle_outline_black_18dp=0x7f020005;
-        public static final int ic_add_circle_outline_black_24dp=0x7f020006;
-        public static final int ic_add_circle_outline_black_36dp=0x7f020007;
-        public static final int ic_add_circle_outline_black_48dp=0x7f020008;
-        public static final int ic_add_circle_outline_white_18dp=0x7f020009;
-        public static final int ic_add_circle_outline_white_24dp=0x7f02000a;
-        public static final int ic_add_circle_outline_white_36dp=0x7f02000b;
-        public static final int ic_add_circle_outline_white_48dp=0x7f02000c;
-        public static final int ic_add_circle_white_18dp=0x7f02000d;
-        public static final int ic_add_circle_white_24dp=0x7f02000e;
-        public static final int ic_add_circle_white_36dp=0x7f02000f;
-        public static final int ic_add_circle_white_48dp=0x7f020010;
-        public static final int ic_add_white_18dp=0x7f020011;
-        public static final int ic_add_white_24dp=0x7f020012;
-        public static final int ic_add_white_36dp=0x7f020013;
-        public static final int ic_add_white_48dp=0x7f020014;
-        public static final int ic_delete_black_18dp=0x7f020015;
-        public static final int ic_delete_black_24dp=0x7f020016;
-        public static final int ic_delete_black_36dp=0x7f020017;
-        public static final int ic_delete_black_48dp=0x7f020018;
-        public static final int ic_delete_white_18dp=0x7f020019;
-        public static final int ic_delete_white_24dp=0x7f02001a;
-        public static final int ic_delete_white_36dp=0x7f02001b;
-        public static final int ic_delete_white_48dp=0x7f02001c;
-        public static final int ic_delete_white_48pt=0x7f02001d;
-        public static final int ic_delete_white_48pt_2x=0x7f02001e;
-        public static final int ic_delete_white_48pt_3x=0x7f02001f;
-        public static final int ic_launcher=0x7f020020;
-        public static final int ic_restore_black_18dp=0x7f020021;
-        public static final int ic_restore_black_24dp=0x7f020022;
-        public static final int ic_restore_black_36dp=0x7f020023;
-        public static final int ic_restore_black_48dp=0x7f020024;
-        public static final int ic_restore_white_18dp=0x7f020025;
-        public static final int ic_restore_white_24dp=0x7f020026;
-        public static final int ic_restore_white_36dp=0x7f020027;
-        public static final int ic_restore_white_48dp=0x7f020028;
-        public static final int ic_share_black_16dp=0x7f020029;
-        public static final int ic_share_black_18dp=0x7f02002a;
-        public static final int ic_share_black_24dp=0x7f02002b;
-        public static final int ic_share_black_36dp=0x7f02002c;
-        public static final int ic_share_black_48dp=0x7f02002d;
-        public static final int ic_share_white_16dp=0x7f02002e;
-        public static final int ic_share_white_18dp=0x7f02002f;
-        public static final int ic_share_white_24dp=0x7f020030;
-        public static final int ic_share_white_36dp=0x7f020031;
-        public static final int ic_share_white_48dp=0x7f020032;
+        public static final int circle_plus_hdpi=0x7f020001;
+        public static final int circle_plus_mdpi=0x7f020002;
+        public static final int circle_plus_xhdpi=0x7f020003;
+        public static final int circle_plus_xxhdpi=0x7f020004;
+        public static final int circle_plus_xxxhdpi=0x7f020005;
+        public static final int fab_shadow=0x7f020006;
+        public static final int fab_shadow_mini=0x7f020007;
+        public static final int ic_add_circle_black_18dp=0x7f020008;
+        public static final int ic_add_circle_black_24dp=0x7f020009;
+        public static final int ic_add_circle_black_36dp=0x7f02000a;
+        public static final int ic_add_circle_black_48dp=0x7f02000b;
+        public static final int ic_add_circle_outline_black_18dp=0x7f02000c;
+        public static final int ic_add_circle_outline_black_24dp=0x7f02000d;
+        public static final int ic_add_circle_outline_black_36dp=0x7f02000e;
+        public static final int ic_add_circle_outline_black_48dp=0x7f02000f;
+        public static final int ic_add_circle_outline_white_18dp=0x7f020010;
+        public static final int ic_add_circle_outline_white_24dp=0x7f020011;
+        public static final int ic_add_circle_outline_white_36dp=0x7f020012;
+        public static final int ic_add_circle_outline_white_48dp=0x7f020013;
+        public static final int ic_add_circle_white_18dp=0x7f020014;
+        public static final int ic_add_circle_white_24dp=0x7f020015;
+        public static final int ic_add_circle_white_36dp=0x7f020016;
+        public static final int ic_add_circle_white_48dp=0x7f020017;
+        public static final int ic_add_white_18dp=0x7f020018;
+        public static final int ic_add_white_24dp=0x7f020019;
+        public static final int ic_add_white_36dp=0x7f02001a;
+        public static final int ic_add_white_48dp=0x7f02001b;
+        public static final int ic_delete_black_18dp=0x7f02001c;
+        public static final int ic_delete_black_24dp=0x7f02001d;
+        public static final int ic_delete_black_36dp=0x7f02001e;
+        public static final int ic_delete_black_48dp=0x7f02001f;
+        public static final int ic_delete_white_18dp=0x7f020020;
+        public static final int ic_delete_white_24dp=0x7f020021;
+        public static final int ic_delete_white_36dp=0x7f020022;
+        public static final int ic_delete_white_48dp=0x7f020023;
+        public static final int ic_delete_white_48pt=0x7f020024;
+        public static final int ic_delete_white_48pt_2x=0x7f020025;
+        public static final int ic_delete_white_48pt_3x=0x7f020026;
+        public static final int ic_launcher=0x7f020027;
+        public static final int ic_restore_black_18dp=0x7f020028;
+        public static final int ic_restore_black_24dp=0x7f020029;
+        public static final int ic_restore_black_36dp=0x7f02002a;
+        public static final int ic_restore_black_48dp=0x7f02002b;
+        public static final int ic_restore_white_18dp=0x7f02002c;
+        public static final int ic_restore_white_24dp=0x7f02002d;
+        public static final int ic_restore_white_36dp=0x7f02002e;
+        public static final int ic_restore_white_48dp=0x7f02002f;
+        public static final int ic_share_black_16dp=0x7f020030;
+        public static final int ic_share_black_18dp=0x7f020031;
+        public static final int ic_share_black_24dp=0x7f020032;
+        public static final int ic_share_black_36dp=0x7f020033;
+        public static final int ic_share_black_48dp=0x7f020034;
+        public static final int ic_share_white_16dp=0x7f020035;
+        public static final int ic_share_white_18dp=0x7f020036;
+        public static final int ic_share_white_24dp=0x7f020037;
+        public static final int ic_share_white_36dp=0x7f020038;
+        public static final int ic_share_white_48dp=0x7f020039;
+        public static final int icon_114x114=0x7f02003a;
+        public static final int plus_xxxdpi=0x7f02003b;
+        public static final int rounded_corner=0x7f02003c;
     }
     public static final class id {
-        public static final int addButton=0x7f080002;
-        public static final int clearButton=0x7f080001;
-        public static final int delete_btn=0x7f080009;
-        public static final int edit_note_text=0x7f080006;
-        public static final int edit_note_title=0x7f080005;
-        public static final int lay1=0x7f080000;
-        public static final int ll_back=0x7f080007;
-        public static final int ll_delete=0x7f08000e;
-        public static final int ll_front=0x7f08000a;
-        public static final int main_lay=0x7f080004;
-        public static final int main_lay_paren=0x7f080003;
-        public static final int note_date=0x7f08000c;
-        public static final int note_text=0x7f08000d;
-        public static final int note_title=0x7f08000b;
-        public static final int restore_btn=0x7f08000f;
-        public static final int share_button=0x7f080008;
+        public static final int addButton=0x7f090006;
+        public static final int addTagButton=0x7f09000b;
+        public static final int clearButton=0x7f090003;
+        public static final int delete_btn=0x7f09000e;
+        public static final int edit_note_text=0x7f090008;
+        public static final int edit_note_title=0x7f090007;
+        public static final int lay1=0x7f090002;
+        public static final int ll_back=0x7f09000c;
+        public static final int ll_delete=0x7f090013;
+        public static final int ll_front=0x7f09000f;
+        public static final int main_lay=0x7f090005;
+        public static final int main_lay_paren=0x7f090004;
+        public static final int mini=0x7f090000;
+        public static final int normal=0x7f090001;
+        public static final int note_date=0x7f090011;
+        public static final int note_text=0x7f090012;
+        public static final int note_title=0x7f090010;
+        public static final int restore_btn=0x7f090014;
+        public static final int share_button=0x7f09000d;
+        public static final int tag=0x7f090009;
+        public static final int textView=0x7f09000a;
     }
     public static final class layout {
         public static final int main=0x7f030000;
@@ -97,12 +175,139 @@ public final class R {
         public static final int noteitemview=0x7f030002;
     }
     public static final class string {
-        public static final int app_name=0x7f060000;
+        public static final int app_name=0x7f070000;
+        public static final int define_FloatingActionButton=0x7f070001;
+        public static final int library_FloatingActionButton_author=0x7f070002;
+        public static final int library_FloatingActionButton_authorWebsite=0x7f070003;
+        public static final int library_FloatingActionButton_isOpenSource=0x7f070004;
+        public static final int library_FloatingActionButton_libraryDescription=0x7f070005;
+        public static final int library_FloatingActionButton_libraryName=0x7f070006;
+        public static final int library_FloatingActionButton_libraryVersion=0x7f070007;
+        public static final int library_FloatingActionButton_libraryWebsite=0x7f070008;
+        public static final int library_FloatingActionButton_licenseId=0x7f070009;
+        public static final int library_FloatingActionButton_repositoryLink=0x7f07000a;
     }
     public static final class style {
         /** <item name="android:background">#fff</item>
 <item name="android:textColor">#b00</item>
          */
-        public static final int NoteDialogStyle=0x7f070000;
+        public static final int NoteDialogStyle=0x7f080000;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a FloatingActionButton.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_colorDisabled com.example.Notes:fab_colorDisabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_colorNormal com.example.Notes:fab_colorNormal}</code></td><td></td></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_colorPressed com.example.Notes:fab_colorPressed}</code></td><td></td></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_colorRipple com.example.Notes:fab_colorRipple}</code></td><td></td></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_shadow com.example.Notes:fab_shadow}</code></td><td></td></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_type com.example.Notes:fab_type}</code></td><td></td></tr>
+           </table>
+           @see #FloatingActionButton_fab_colorDisabled
+           @see #FloatingActionButton_fab_colorNormal
+           @see #FloatingActionButton_fab_colorPressed
+           @see #FloatingActionButton_fab_colorRipple
+           @see #FloatingActionButton_fab_shadow
+           @see #FloatingActionButton_fab_type
+         */
+        public static final int[] FloatingActionButton = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_colorDisabled}
+          attribute's value can be found in the {@link #FloatingActionButton} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.Notes:fab_colorDisabled
+        */
+        public static final int FloatingActionButton_fab_colorDisabled = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_colorNormal}
+          attribute's value can be found in the {@link #FloatingActionButton} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.Notes:fab_colorNormal
+        */
+        public static final int FloatingActionButton_fab_colorNormal = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_colorPressed}
+          attribute's value can be found in the {@link #FloatingActionButton} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.Notes:fab_colorPressed
+        */
+        public static final int FloatingActionButton_fab_colorPressed = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_colorRipple}
+          attribute's value can be found in the {@link #FloatingActionButton} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.Notes:fab_colorRipple
+        */
+        public static final int FloatingActionButton_fab_colorRipple = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_shadow}
+          attribute's value can be found in the {@link #FloatingActionButton} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.Notes:fab_shadow
+        */
+        public static final int FloatingActionButton_fab_shadow = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_type}
+          attribute's value can be found in the {@link #FloatingActionButton} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>normal</code></td><td>0</td><td></td></tr>
+<tr><td><code>mini</code></td><td>1</td><td></td></tr>
+</table>
+          @attr name com.example.Notes:fab_type
+        */
+        public static final int FloatingActionButton_fab_type = 5;
+    };
 }

@@ -1,27 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="match_parent"
+              android:layout_width="fill_parent"
               android:layout_height="match_parent"
               android:weightSum="1"
-        >
+             android:background="@color/noteItem_background">
 
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/edit_note_title"
-            android:layout_weight="0.07"
-            android:textSize="24dp"
-            android:hint="Title"
-            android:textColorHint="#ff6e6e6e"
-            android:textColor="#000"
-            android:padding="10dp" android:layout_margin="5dp"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/edit_note_text"
-            android:textColor="#000"
-            android:textSize="24dp"
-            android:hint="Text"
-            android:textColorHint="#ff6e6e6e" android:padding="10dp" android:layout_margin="5dp"/>
-</LinearLayout>
+    <LinearLayout
+            android:layout_width="500dp"
+            android:layout_height="fill_parent" android:orientation="vertical">
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_note_title"
+                android:textSize="24dp"
+                android:hint="Title"
+                android:textColorHint="#ff6e6e6e"
+                android:textColor="#000"
+                android:padding="10dp"/>
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_note_text"
+                android:textColor="#000"
+                android:textSize="24dp"
+                android:hint="Text"
+                android:textColorHint="#ff6e6e6e" android:padding="10dp" android:layout_margin="5dp"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent" android:layout_weight="0.07" android:layout_gravity="right|top"
+            style="@android:style/Theme.Material.Light.Dialog" android:transitionGroup="false"
+            android:measureWithLargestChild="false">
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="jsdyfdydifidfgyidfygiydfigyidfyg"
+                android:id="@+id/tag" android:layout_gravity="center_horizontal" android:padding="10dp"
+                android:background="@drawable/rounded_corner" android:elegantTextHeight="false" android:enabled="false"
+                android:focusable="false" android:focusableInTouchMode="false" android:phoneNumber="false"
+                android:password="false" android:textColor="#fff" android:layout_marginBottom="3dp"/>
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+                  android:text="jsdyfdydifidfgyidfygiydfigyidfyg" android:id="@+id/textView"
+                  android:layout_gravity="center_horizontal" android:padding="10dp"
+                  android:background="@drawable/rounded_corner" android:elegantTextHeight="false"
+                  android:enabled="false" android:focusable="false" android:focusableInTouchMode="false"
+                  android:phoneNumber="false" android:password="false" android:textColor="#fff"
+                  android:layout_marginBottom="3dp"/>
+        <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="add tag"
+                android:id="@+id/addTagButton" style="@android:style/Widget.Material.Light.Button.Borderless"
+                android:textColor="#000"/>
+    </LinearLayout>
+</FrameLayout>

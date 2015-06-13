@@ -107,7 +107,7 @@ public class NoteItemView extends FrameLayout {
 
             public void onClick() {
                 super.onClick();
-                NoteEditDialogView dialog = (new NoteEditDialogView()).newInstance(self_noteitem);
+                NoteEditDialogView dialog = new NoteEditDialogView(self_noteitem);
                 dialog.show(((MainActivity) getContext()).getFragmentManager(), "editDialog");
             }
         });

@@ -5,9 +5,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-
+import com.melnykov.fab.FloatingActionButton;
+import com.melnykov.fab.ObservableScrollView;
 
 
 public class MainActivity extends Activity {
@@ -18,9 +18,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
 
 
-        final ImageButton addButton = (ImageButton) findViewById(R.id.addButton);
+        final FloatingActionButton addButton = (FloatingActionButton) findViewById(R.id.addButton);
         final Button clearButton = (Button) findViewById(R.id.clearButton);
+        final ObservableScrollView main_lay_paren = (ObservableScrollView) findViewById(R.id.main_lay_paren);
+        addButton.attachToScrollView(main_lay_paren);
+
         notedb = new NoteDb(this);
+
 
         for (Note note : notedb.getNotes()) {
             if (note.state.equals("delete")) {
@@ -33,7 +37,7 @@ public class MainActivity extends Activity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
-                NoteCreateDialogView dialog = (new NoteCreateDialogView()).newInstance();
+                NoteCreateDialogView dialog = new NoteCreateDialogView();
                 dialog.show(getFragmentManager(), "createDialog");
             }
         });
@@ -50,7 +54,6 @@ public class MainActivity extends Activity {
 
     public void addNoteToScreen(final Note note) {
         final NoteItemView noteItem = new NoteItemView(this);
-        final Context self = this;
         LinearLayout main_lay = (LinearLayout) findViewById(R.id.main_lay);
         main_lay.addView(noteItem);
         noteItem.setData(note.title, note.timestamp, note.text, note._id);

@@ -1,7 +1,10 @@
-package com.example.Notes;
+package com.struckoff.Notes;
+
+/**
+ * Note edit dialog
+ */
 
 import android.content.ContentValues;
-import android.util.AttributeSet;
 
 public class NoteEditDialogView extends NoteDialogView {
 

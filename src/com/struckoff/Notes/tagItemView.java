@@ -1,4 +1,4 @@
-package com.example.Notes;
+package com.struckoff.Notes;
 
 import android.content.Context;
 import android.util.AttributeSet;

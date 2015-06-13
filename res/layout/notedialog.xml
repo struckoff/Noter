@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
               android:layout_width="fill_parent"
               android:layout_height="match_parent"
               android:weightSum="1"
              android:background="@color/noteItem_background">
 
     <LinearLayout
-            android:layout_width="500dp"
-            android:layout_height="fill_parent" android:orientation="vertical">
+            android:layout_width="0dp"
+            android:layout_height="fill_parent" android:orientation="vertical" android:layout_weight=".8">
         <EditText
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_note_title"
                 android:textSize="24dp"
@@ -29,30 +29,27 @@
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
-            android:layout_width="100dp"
-            android:layout_height="fill_parent" android:layout_weight="0.07" android:layout_gravity="right|top"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             style="@android:style/Theme.Material.Light.Dialog" android:transitionGroup="false"
-            android:measureWithLargestChild="false">
-        <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="jsdyfdydifidfgyidfygiydfigyidfyg"
-                android:id="@+id/tag" android:layout_gravity="center_horizontal" android:padding="10dp"
-                android:background="@drawable/rounded_corner" android:elegantTextHeight="false" android:enabled="false"
-                android:focusable="false" android:focusableInTouchMode="false" android:phoneNumber="false"
-                android:password="false" android:textColor="#fff" android:layout_marginBottom="3dp"/>
-        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
-                  android:text="jsdyfdydifidfgyidfygiydfigyidfyg" android:id="@+id/textView"
-                  android:layout_gravity="center_horizontal" android:padding="10dp"
-                  android:background="@drawable/rounded_corner" android:elegantTextHeight="false"
-                  android:enabled="false" android:focusable="false" android:focusableInTouchMode="false"
-                  android:phoneNumber="false" android:password="false" android:textColor="#fff"
-                  android:layout_marginBottom="3dp"/>
+            android:measureWithLargestChild="false" android:id="@+id/tagLay_paren" android:layout_gravity="right"
+            android:layout_weight=".2" android:rowCount="2" android:columnCount="1">
         <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="add tag"
                 android:id="@+id/addTagButton" style="@android:style/Widget.Material.Light.Button.Borderless"
-                android:textColor="#000"/>
+                android:textColor="#000" android:gravity="bottom" android:layout_gravity="bottom"/>
+        <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/scrollView">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/tagLay"
+                    android:padding="5dp">
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

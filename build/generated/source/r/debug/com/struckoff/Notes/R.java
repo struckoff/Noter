@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.example.Notes;
+package com.struckoff.Notes;
 
 public final class R {
     public static final class anim {
@@ -148,31 +148,37 @@ containing a value of this type.
     }
     public static final class id {
         public static final int addButton=0x7f090006;
-        public static final int addTagButton=0x7f09000b;
+        public static final int addTagButton=0x7f09000a;
         public static final int clearButton=0x7f090003;
-        public static final int delete_btn=0x7f09000e;
+        public static final int delete_btn=0x7f090012;
         public static final int edit_note_text=0x7f090008;
         public static final int edit_note_title=0x7f090007;
         public static final int lay1=0x7f090002;
-        public static final int ll_back=0x7f09000c;
-        public static final int ll_delete=0x7f090013;
-        public static final int ll_front=0x7f09000f;
+        public static final int ll_back=0x7f090010;
+        public static final int ll_delete=0x7f090017;
+        public static final int ll_front=0x7f090013;
         public static final int main_lay=0x7f090005;
         public static final int main_lay_paren=0x7f090004;
         public static final int mini=0x7f090000;
         public static final int normal=0x7f090001;
-        public static final int note_date=0x7f090011;
-        public static final int note_text=0x7f090012;
-        public static final int note_title=0x7f090010;
-        public static final int restore_btn=0x7f090014;
-        public static final int share_button=0x7f09000d;
-        public static final int tag=0x7f090009;
-        public static final int textView=0x7f09000a;
+        public static final int note_date=0x7f090015;
+        public static final int note_text=0x7f090016;
+        public static final int note_title=0x7f090014;
+        public static final int restore_btn=0x7f090018;
+        public static final int scrollView=0x7f09000b;
+        public static final int share_button=0x7f090011;
+        public static final int tagItem=0x7f090019;
+        public static final int tagLay=0x7f09000c;
+        public static final int tagLay_paren=0x7f090009;
+        public static final int textView=0x7f09000d;
+        public static final int textView2=0x7f09000f;
+        public static final int textView3=0x7f09000e;
     }
     public static final class layout {
         public static final int main=0x7f030000;
         public static final int notedialog=0x7f030001;
         public static final int noteitemview=0x7f030002;
+        public static final int tag=0x7f030003;
     }
     public static final class string {
         public static final int app_name=0x7f070000;
@@ -192,6 +198,8 @@ containing a value of this type.
 <item name="android:textColor">#b00</item>
          */
         public static final int NoteDialogStyle=0x7f080000;
+        public static final int TagItemStyle=0x7f080001;
+        public static final int TagLayStyle=0x7f080002;
     }
     public static final class styleable {
         /** Attributes that can be used with a FloatingActionButton.
@@ -200,12 +208,12 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #FloatingActionButton_fab_colorDisabled com.example.Notes:fab_colorDisabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #FloatingActionButton_fab_colorNormal com.example.Notes:fab_colorNormal}</code></td><td></td></tr>
-           <tr><td><code>{@link #FloatingActionButton_fab_colorPressed com.example.Notes:fab_colorPressed}</code></td><td></td></tr>
-           <tr><td><code>{@link #FloatingActionButton_fab_colorRipple com.example.Notes:fab_colorRipple}</code></td><td></td></tr>
-           <tr><td><code>{@link #FloatingActionButton_fab_shadow com.example.Notes:fab_shadow}</code></td><td></td></tr>
-           <tr><td><code>{@link #FloatingActionButton_fab_type com.example.Notes:fab_type}</code></td><td></td></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_colorDisabled com.struckoff.Notes:fab_colorDisabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_colorNormal com.struckoff.Notes:fab_colorNormal}</code></td><td></td></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_colorPressed com.struckoff.Notes:fab_colorPressed}</code></td><td></td></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_colorRipple com.struckoff.Notes:fab_colorRipple}</code></td><td></td></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_shadow com.struckoff.Notes:fab_shadow}</code></td><td></td></tr>
+           <tr><td><code>{@link #FloatingActionButton_fab_type com.struckoff.Notes:fab_type}</code></td><td></td></tr>
            </table>
            @see #FloatingActionButton_fab_colorDisabled
            @see #FloatingActionButton_fab_colorNormal
@@ -219,7 +227,7 @@ containing a value of this type.
             0x7f010004, 0x7f010005
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_colorDisabled}
+          <p>This symbol is the offset where the {@link com.struckoff.Notes.R.attr#fab_colorDisabled}
           attribute's value can be found in the {@link #FloatingActionButton} array.
 
 
@@ -230,11 +238,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.Notes:fab_colorDisabled
+          @attr name com.struckoff.Notes:fab_colorDisabled
         */
         public static final int FloatingActionButton_fab_colorDisabled = 3;
         /**
-          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_colorNormal}
+          <p>This symbol is the offset where the {@link com.struckoff.Notes.R.attr#fab_colorNormal}
           attribute's value can be found in the {@link #FloatingActionButton} array.
 
 
@@ -245,11 +253,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.Notes:fab_colorNormal
+          @attr name com.struckoff.Notes:fab_colorNormal
         */
         public static final int FloatingActionButton_fab_colorNormal = 1;
         /**
-          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_colorPressed}
+          <p>This symbol is the offset where the {@link com.struckoff.Notes.R.attr#fab_colorPressed}
           attribute's value can be found in the {@link #FloatingActionButton} array.
 
 
@@ -260,11 +268,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.Notes:fab_colorPressed
+          @attr name com.struckoff.Notes:fab_colorPressed
         */
         public static final int FloatingActionButton_fab_colorPressed = 0;
         /**
-          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_colorRipple}
+          <p>This symbol is the offset where the {@link com.struckoff.Notes.R.attr#fab_colorRipple}
           attribute's value can be found in the {@link #FloatingActionButton} array.
 
 
@@ -275,11 +283,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.Notes:fab_colorRipple
+          @attr name com.struckoff.Notes:fab_colorRipple
         */
         public static final int FloatingActionButton_fab_colorRipple = 2;
         /**
-          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_shadow}
+          <p>This symbol is the offset where the {@link com.struckoff.Notes.R.attr#fab_shadow}
           attribute's value can be found in the {@link #FloatingActionButton} array.
 
 
@@ -289,11 +297,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.Notes:fab_shadow
+          @attr name com.struckoff.Notes:fab_shadow
         */
         public static final int FloatingActionButton_fab_shadow = 4;
         /**
-          <p>This symbol is the offset where the {@link com.example.Notes.R.attr#fab_type}
+          <p>This symbol is the offset where the {@link com.struckoff.Notes.R.attr#fab_type}
           attribute's value can be found in the {@link #FloatingActionButton} array.
 
 
@@ -306,7 +314,7 @@ containing a value of this type.
 <tr><td><code>normal</code></td><td>0</td><td></td></tr>
 <tr><td><code>mini</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.example.Notes:fab_type
+          @attr name com.struckoff.Notes:fab_type
         */
         public static final int FloatingActionButton_fab_type = 5;
     };

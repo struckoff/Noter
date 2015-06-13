@@ -1,4 +1,8 @@
-package com.example.Notes;
+package com.struckoff.Notes;
+
+/**
+ * Interface for main DB
+ */
 
 import android.content.ContentValues;
 import android.content.Context;

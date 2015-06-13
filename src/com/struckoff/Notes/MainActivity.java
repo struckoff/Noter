@@ -1,7 +1,12 @@
-package com.example.Notes;
+package com.struckoff.Notes;
+
+/**
+ *
+ * Main Activity (Main screen if app) with notes list and add button
+ *
+ */
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;

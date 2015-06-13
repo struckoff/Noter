@@ -1,4 +1,9 @@
-package com.example.Notes;
+package com.struckoff.Notes;
+
+/**
+ *
+ * Note table for SQLite
+ */
 
 import java.util.Date;
 

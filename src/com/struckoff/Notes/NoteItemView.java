@@ -1,4 +1,8 @@
-package com.example.Notes;
+package com.struckoff.Notes;
+
+/**
+ * Note item view
+ */
 
 import android.animation.Animator;
 import android.content.ContentValues;
@@ -14,7 +18,6 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
 
 public class NoteItemView extends FrameLayout {
     private TextView title;

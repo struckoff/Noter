@@ -1,5 +1,8 @@
-package com.example.Notes;
+package com.struckoff.Notes;
 
+/**
+ * Create (add) Note dialog
+ */
 
 public class NoteCreateDialogView extends NoteDialogView {
 

@@ -144,41 +144,46 @@ containing a value of this type.
         public static final int ic_share_white_48dp=0x7f020039;
         public static final int icon_114x114=0x7f02003a;
         public static final int plus_xxxdpi=0x7f02003b;
-        public static final int rounded_corner=0x7f02003c;
+        public static final int rounded_corner_dialog=0x7f02003c;
+        public static final int rounded_corner_dialog_red=0x7f02003d;
+        public static final int rounded_corner_item=0x7f02003e;
     }
     public static final class id {
         public static final int addButton=0x7f090006;
-        public static final int addTagButton=0x7f09000a;
+        public static final int addTagButton=0x7f09000c;
+        public static final int add_tag_text=0x7f09000a;
         public static final int clearButton=0x7f090003;
+        public static final int deleteTagButton=0x7f09000d;
         public static final int delete_btn=0x7f090012;
-        public static final int edit_note_text=0x7f090008;
-        public static final int edit_note_title=0x7f090007;
+        public static final int edit_note_text=0x7f090009;
+        public static final int edit_note_title=0x7f090008;
         public static final int lay1=0x7f090002;
         public static final int ll_back=0x7f090010;
-        public static final int ll_delete=0x7f090017;
+        public static final int ll_delete=0x7f090018;
         public static final int ll_front=0x7f090013;
         public static final int main_lay=0x7f090005;
         public static final int main_lay_paren=0x7f090004;
         public static final int mini=0x7f090000;
         public static final int normal=0x7f090001;
-        public static final int note_date=0x7f090015;
-        public static final int note_text=0x7f090016;
+        public static final int note_date=0x7f090017;
+        public static final int note_text=0x7f090015;
         public static final int note_title=0x7f090014;
-        public static final int restore_btn=0x7f090018;
-        public static final int scrollView=0x7f09000b;
+        public static final int restore_btn=0x7f090019;
+        public static final int scrollView=0x7f09000e;
+        public static final int scrollView2=0x7f090007;
         public static final int share_button=0x7f090011;
-        public static final int tagItem=0x7f090019;
-        public static final int tagLay=0x7f09000c;
-        public static final int tagLay_paren=0x7f090009;
-        public static final int textView=0x7f09000d;
-        public static final int textView2=0x7f09000f;
-        public static final int textView3=0x7f09000e;
+        public static final int tagItem=0x7f09001a;
+        public static final int tagItem_onNoteItem=0x7f09001b;
+        public static final int tagLay=0x7f09000f;
+        public static final int tagLay_onItem=0x7f090016;
+        public static final int tagLay_paren=0x7f09000b;
     }
     public static final class layout {
         public static final int main=0x7f030000;
         public static final int notedialog=0x7f030001;
         public static final int noteitemview=0x7f030002;
-        public static final int tag=0x7f030003;
+        public static final int tag_ondialog=0x7f030003;
+        public static final int tag_onitem=0x7f030004;
     }
     public static final class string {
         public static final int app_name=0x7f070000;
@@ -199,7 +204,8 @@ containing a value of this type.
          */
         public static final int NoteDialogStyle=0x7f080000;
         public static final int TagItemStyle=0x7f080001;
-        public static final int TagLayStyle=0x7f080002;
+        public static final int TagItemStyle_onNoteItem=0x7f080002;
+        public static final int TagLayStyle=0x7f080003;
     }
     public static final class styleable {
         /** Attributes that can be used with a FloatingActionButton.

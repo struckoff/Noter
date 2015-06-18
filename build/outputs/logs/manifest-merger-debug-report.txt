@@ -29,7 +29,7 @@ MERGED from com.android.support:support-v4:21.0.3:16:5
 		ADDED from AndroidManifest.xml:7:18
 	android:icon
 		ADDED from AndroidManifest.xml:7:51
-activity#com.example.Notes.MainActivity
+activity#com.struckoff.Notes.MainActivity
 ADDED from AndroidManifest.xml:8:9
 	android:label
 		ADDED from AndroidManifest.xml:10:19

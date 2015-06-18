@@ -1,9 +1,7 @@
 package com.struckoff.Notes;
 
 /**
- *
  * Main Activity (Main screen if app) with notes list and add button
- *
  */
 
 import android.app.Activity;
@@ -22,14 +20,12 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-
         final FloatingActionButton addButton = (FloatingActionButton) findViewById(R.id.addButton);
         final Button clearButton = (Button) findViewById(R.id.clearButton);
         final ObservableScrollView main_lay_paren = (ObservableScrollView) findViewById(R.id.main_lay_paren);
         addButton.attachToScrollView(main_lay_paren);
 
         notedb = new NoteDb(this);
-
 
         for (Note note : notedb.getNotes()) {
             if (note.state.equals("delete")) {
@@ -67,5 +63,4 @@ public class MainActivity extends Activity {
     public void removeNote(Note note) {
         notedb.deleteNote(note._id);
     }
-
 }

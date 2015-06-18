@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -32,10 +33,13 @@ public class NoteItemView extends FrameLayout {
     public FrameLayout front = null;
     public FrameLayout back = null;
     public FrameLayout delete_lay = null;
+    private LinearLayout tagLay = null;
 
     private ImageButton delete_btn = null;
     private ImageButton share_btn = null;
     private ImageButton restore_btn = null;
+
+    private NoteDb notedb = ((MainActivity) getContext()).notedb;
 
 
     public NoteItemView(Context context){
@@ -61,6 +65,7 @@ public class NoteItemView extends FrameLayout {
         this.delete_btn = (ImageButton) findViewById(R.id.delete_btn);
         this.share_btn = (ImageButton) findViewById(R.id.share_button);
         this.restore_btn = (ImageButton) findViewById(R.id.restore_btn);
+        this.tagLay = (LinearLayout) findViewById(R.id.tagLay_onItem);
 
         final NoteItemView self_noteitem = this;
 
@@ -143,6 +148,7 @@ public class NoteItemView extends FrameLayout {
                 ((MainActivity) getContext()).startActivity(Intent.createChooser(sharingIntent, "Share via ..."));
             }
         });
+
     }
 
     public void setData(String title, Date date, String text, Long id){
@@ -150,6 +156,16 @@ public class NoteItemView extends FrameLayout {
         this.setText(text);
         this.setTitle(title);
         this.id_raw = id;
+
+        for (Tag tag : this.notedb.getTags(this.id_raw)){
+            FrameLayout tag_frame = new FrameLayout(getContext());
+            tag_frame.inflate(getContext(), R.layout.tag_onitem, tag_frame);
+            TextView tag_view = (TextView) tag_frame.findViewById(R.id.tagItem_onNoteItem);
+            tag_view.setText(tag.text);
+            tag_view.setTextAppearance(getContext(), R.style.TagItemStyle_onNoteItem);
+            this.tagLay.addView(tag_frame);
+        }
+
     }
 
     public void setTitle(String title){
@@ -170,14 +186,13 @@ public class NoteItemView extends FrameLayout {
     public void setState(String state) {
         ContentValues values = new ContentValues(1);
         values.put("state", state);
-        ((MainActivity) getContext()).notedb.updateNotes(this.getItemId(), values);
+        this.notedb.updateNotes(this.getItemId(), values);
 
         if (state.equals("delete")) {
             this.delete_lay.setVisibility(View.VISIBLE);
         } else if (state.equals("active")) {
             this.delete_lay.setVisibility(View.GONE);
         }
-
     }
 
     public String getTitle(){

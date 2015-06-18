@@ -4,28 +4,50 @@
               android:layout_width="fill_parent"
               android:layout_height="match_parent"
               android:weightSum="1"
-             android:background="@color/noteItem_background">
+             android:background="@color/noteItem_background" android:baselineAligned="false">
 
     <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="fill_parent" android:orientation="vertical" android:layout_weight=".8">
-        <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edit_note_title"
-                android:textSize="24dp"
-                android:hint="Title"
-                android:textColorHint="#ff6e6e6e"
-                android:textColor="#000"
-                android:padding="10dp"/>
-        <EditText
+            android:layout_height="match_parent" android:orientation="vertical" android:layout_weight=".8">
+        <ScrollView
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edit_note_text"
-                android:textColor="#000"
-                android:textSize="24dp"
-                android:hint="Text"
-                android:textColorHint="#ff6e6e6e" android:padding="10dp" android:layout_margin="5dp"/>
+                android:layout_height="fill_parent"
+                android:id="@+id/scrollView2">
+            <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" android:orientation="vertical"
+                    android:rowOrderPreserved="false">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edit_note_title"
+                        android:textSize="22dp"
+                        android:hint="Title"
+                        android:textColorHint="#ff6e6e6e"
+                        android:textColor="#000"
+                        android:padding="10dp"
+                        android:textStyle="italic" android:textIsSelectable="false" android:layout_marginBottom="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edit_note_text"
+                        android:textColor="#000"
+                        android:textSize="24dp"
+                        android:hint="Text"
+                        android:textColorHint="#ff6e6e6e" android:padding="10dp" android:layout_margin="5dp"
+                        />
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24dp"
+                        android:hint=" Tag1, Tag2, ..."
+                        android:textColorHint="#ff6e6e6e"
+                        android:visibility="gone"
+                        android:textColor="#000"
+                        android:singleLine="true"
+                        android:id="@+id/add_tag_text"/>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
@@ -39,7 +61,18 @@
                 android:layout_height="wrap_content"
                 android:text="add tag"
                 android:id="@+id/addTagButton" style="@android:style/Widget.Material.Light.Button.Borderless"
-                android:textColor="#000" android:gravity="bottom" android:layout_gravity="bottom"/>
+                android:textColor="#000" android:layout_gravity="bottom"
+                android:visibility="visible"/>
+        <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="delete tags"
+                android:id="@+id/deleteTagButton"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:textColor="#fff"
+                android:background="#f44336"
+                android:layout_gravity="bottom"
+                android:visibility="gone"/>
         <ScrollView
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
@@ -49,25 +82,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/tagLay"
                     android:padding="5dp">
-                <FrameLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent" style="@style/TagLayStyle">
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="New Text"
-                            android:id="@+id/textView" style="@style/TagItemStyle"/>
-                </FrameLayout>
-                <FrameLayout style="@style/TagLayStyle" android:layout_width="fill_parent"
-                             android:layout_height="fill_parent">
-                    <TextView style="@style/TagItemStyle" android:layout_width="wrap_content"
-                              android:layout_height="wrap_content" android:text="New Text" android:id="@+id/textView3"/>
-                </FrameLayout>
-                <FrameLayout style="@style/TagLayStyle" android:layout_width="fill_parent"
-                             android:layout_height="fill_parent">
-                    <TextView style="@style/TagItemStyle" android:layout_width="wrap_content"
-                              android:layout_height="wrap_content" android:text="New Text" android:id="@+id/textView2"/>
-                </FrameLayout>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

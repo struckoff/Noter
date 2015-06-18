@@ -7,23 +7,34 @@ package com.struckoff.Notes;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NoteDialogView extends DialogFragment{
 
     public NoteItemView note = null;
     protected TextView title = null;
     protected TextView text = null;
+    protected TextView tag_text = null;
     protected LinearLayout tagLay = null;
     protected Button addTagButton = null;
+    protected Button deleteTagButton = null;
+    protected List<String> tags = new ArrayList<String>();
+    protected List<FrameLayout> tagsToDelete = new ArrayList<FrameLayout>();
+    protected View main_lay;
 
     private NoteDialogView self_notedialogview = this;
 
@@ -41,29 +52,86 @@ public class NoteDialogView extends DialogFragment{
 
     }
 
+    private void addTag(String tag_body){
+        if (!tag_body.isEmpty()) {
+            addTagToView(tag_body);
+            self_notedialogview.tags.add(tag_body);
+        }
+    }
+
+    public void addTagToView(String tag_body){
+        final FrameLayout lay = new FrameLayout(main_lay.getContext());
+        lay.inflate(self_notedialogview.main_lay.getContext(), R.layout.tag_ondialog, lay);
+        final TextView tagItem = (TextView) lay.findViewById(R.id.tagItem);
+        tagLay.addView(lay);
+        tagItem.setText(tag_body);
+        tagItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (self_notedialogview.tagsToDelete.contains(lay)){
+                    view.setBackgroundResource(R.drawable.rounded_corner_dialog);
+                    self_notedialogview.tagsToDelete.remove(lay);
+                    if (self_notedialogview.tagsToDelete.isEmpty()){
+                        self_notedialogview.addTagButton.setVisibility(View.VISIBLE);
+                        self_notedialogview.deleteTagButton.setVisibility(View.GONE);
+                    }
+                }
+                else{
+                    view.setBackgroundResource(R.drawable.rounded_corner_dialog_red);
+                    self_notedialogview.addTagButton.setVisibility(View.GONE);
+                    self_notedialogview.deleteTagButton.setVisibility(View.VISIBLE);
+                    self_notedialogview.tagsToDelete.add(lay);
+                }
+            }
+        });
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final View main_lay = getActivity().getLayoutInflater().inflate(R.layout.notedialog, null);
-        this.title = (TextView) main_lay.findViewById(R.id.edit_note_title);
-        this.text = (TextView) main_lay.findViewById(R.id.edit_note_text);
-        this.tagLay = (LinearLayout)main_lay.findViewById(R.id.tagLay);
-        this.addTagButton = (Button)main_lay.findViewById(R.id.addTagButton);
+        self_notedialogview.main_lay = getActivity().getLayoutInflater().inflate(R.layout.notedialog, null);
+        self_notedialogview.title = (TextView) main_lay.findViewById(R.id.edit_note_title);
+        self_notedialogview.text = (TextView) main_lay.findViewById(R.id.edit_note_text);
+        self_notedialogview.tag_text = (TextView) main_lay.findViewById(R.id.add_tag_text);
+        self_notedialogview.tagLay = (LinearLayout)main_lay.findViewById(R.id.tagLay);
+        self_notedialogview.addTagButton = (Button)main_lay.findViewById(R.id.addTagButton);
+        self_notedialogview.deleteTagButton = (Button)main_lay.findViewById(R.id.deleteTagButton);
+
 
         addTagButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FrameLayout lay = new FrameLayout(main_lay.getContext());
-                lay.inflate(main_lay.getContext(), R.layout.tag, lay);
-                TextView tag = (TextView) lay.findViewById(R.id.tagItem);
-                tagLay.addView(lay);
-                tag.setText("this");
+                self_notedialogview.tag_text.setVisibility(View.VISIBLE);
+                self_notedialogview.tag_text.setFocusableInTouchMode(true);
+                self_notedialogview.tag_text.requestFocus();
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.showSoftInput(self_notedialogview.tag_text, 0);
             }
         });
 
+        deleteTagButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (FrameLayout tag_lay : self_notedialogview.tagsToDelete){
+                    self_notedialogview.tagLay.removeView(tag_lay);
+                    view.setVisibility(View.GONE);
+                    self_notedialogview.addTagButton.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        self_notedialogview.tag_text.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                addTag(textView.getText().toString());
+                textView.setVisibility(View.GONE);
+                textView.setText("");
+                return false;
+            }
+        });
 
         self_notedialogview.Create();
 
-        return new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.NoteDialogStyle))
+        AlertDialog ad = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.NoteDialogStyle))
                 .setPositiveButton("Save",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
@@ -82,6 +150,9 @@ public class NoteDialogView extends DialogFragment{
                 .setView(main_lay)
                 .create();
 
+        ad.show();
+        ad.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+
+        return ad;
     }
 }
-

@@ -39,13 +39,20 @@
         <!--<item name="android:textColor">#b00</item>-->
     </style>
     <style name="TagItemStyle" parent="@android:style/Theme.Material.Light">
-        <item name="android:background">@drawable/rounded_corner</item>
+        <item name="android:background">@drawable/rounded_corner_dialog</item>
         <item name="android:textSize">20dp</item>
         <item name="android:textColor">#fff</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:textAlignment">gravity</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="TagItemStyle_onNoteItem" parent="@android:style/Theme.Material.Light">
+        <item name="android:background">@drawable/rounded_corner_item</item>
+        <item name="android:textColor">#eee</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:gravity">center</item>
     </style>
     <style name="TagLayStyle" parent="@android:style/Theme.Material.Light">
         <item name="android:layout_width">wrap_content</item>

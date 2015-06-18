@@ -9,10 +9,12 @@ import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
 public class CupboardSQLiteOpenHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Notes.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     static {
         cupboard().register(Note.class);
+        cupboard().register(Tag.class);
+        cupboard().register(TagsToNotes.class);
     }
 
     public CupboardSQLiteOpenHelper(Context context) {

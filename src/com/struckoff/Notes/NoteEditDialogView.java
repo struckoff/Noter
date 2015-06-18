@@ -15,6 +15,9 @@ public class NoteEditDialogView extends NoteDialogView {
     public void Create(){
         title.setText(this.note.getTitle());
         text.setText(this.note.getText());
+        for (Tag tag : ((MainActivity) getActivity()).notedb.getTags(note.getItemId())){
+            this.addTagToView(tag.text);
+        }
     }
 
     public void Positive(){
@@ -24,6 +27,9 @@ public class NoteEditDialogView extends NoteDialogView {
         values.put("title", title.getText().toString());
         values.put("text", text.getText().toString());
         ((MainActivity) getActivity()).notedb.updateNotes(note.getItemId(), values);
+        for (String tag_body : this.tags){
+            ((MainActivity) getActivity()).notedb.addTag(note.getItemId(), tag_body);
+        }
     }
 }
 

@@ -13,6 +13,9 @@ public class NoteCreateDialogView extends NoteDialogView {
         if (!note.text.isEmpty() || !note.title.isEmpty()) {
             note._id = ((MainActivity) getActivity()).notedb.addNote(note);
             ((MainActivity) getActivity()).addNoteToScreen(note);
+            for (String tag_body : this.tags){
+                ((MainActivity) getActivity()).notedb.addTag(note._id, tag_body);
+            }
         }
     }
 }

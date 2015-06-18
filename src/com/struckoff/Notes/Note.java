@@ -14,3 +14,4 @@ public class Note {
     public String state = "active";
     public Date timestamp = new Date();
 }
+

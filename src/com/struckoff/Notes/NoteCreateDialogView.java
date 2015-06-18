@@ -11,10 +11,12 @@ public class NoteCreateDialogView extends NoteDialogView {
         note.title = title.getText().toString();
         note.text = text.getText().toString();
         if (!note.text.isEmpty() || !note.title.isEmpty()) {
-            note._id = ((MainActivity) getActivity()).notedb.addNote(note);
-            ((MainActivity) getActivity()).addNoteToScreen(note);
+            note._id = notedb.addNote(note);
+            NoteItemView note_view = ((MainActivity) getActivity()).addNoteToScreen(note);
+            addTag(tag_text.getText().toString());
             for (String tag_body : this.tags){
-                ((MainActivity) getActivity()).notedb.addTag(note._id, tag_body);
+                notedb.addTag(note._id, tag_body);
+                note_view.addTag(tag_body);
             }
         }
     }

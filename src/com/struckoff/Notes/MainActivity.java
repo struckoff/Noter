@@ -53,11 +53,12 @@ public class MainActivity extends Activity {
         });
     }
 
-    public void addNoteToScreen(final Note note) {
+    public NoteItemView addNoteToScreen(final Note note) {
         final NoteItemView noteItem = new NoteItemView(this);
         LinearLayout main_lay = (LinearLayout) findViewById(R.id.main_lay);
         main_lay.addView(noteItem);
         noteItem.setData(note.title, note.timestamp, note.text, note._id);
+        return noteItem;
     }
 
     public void removeNote(Note note) {

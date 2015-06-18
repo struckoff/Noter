@@ -95,4 +95,14 @@ public class NoteDb{
         }
         return result;
     }
+
+    public void deleteTag(Long note_id, String tag_body){
+        Tag tag = this.cup_withDB.query(Tag.class).withSelection("text = ?", tag_body).get();
+        if (tag != null){
+            this.cup_withDB.delete(TagsToNotes.class, "note_id = ? AND tag_id = ?", note_id.toString(), tag._id.toString());
+            if (this.cup_withDB.query(TagsToNotes.class).withSelection("tag_id = ?", tag._id.toString()).get() == null){
+                this.cup_withDB.delete(Tag.class, tag._id);
+            }
+        }
+    }
 }

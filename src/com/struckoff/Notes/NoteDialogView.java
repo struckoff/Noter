@@ -35,6 +35,7 @@ public class NoteDialogView extends DialogFragment{
     protected List<String> tags = new ArrayList<String>();
     protected List<FrameLayout> tagsToDelete = new ArrayList<FrameLayout>();
     protected View main_lay;
+    protected NoteDb notedb = null;
 
     private NoteDialogView self_notedialogview = this;
 
@@ -44,15 +45,11 @@ public class NoteDialogView extends DialogFragment{
         note = noteItem;
     }
 
-    public void Create() {
+    public void Create() {}
 
-    }
+    public void Positive() {}
 
-    public void Positive() {
-
-    }
-
-    private void addTag(String tag_body){
+    public void addTag(String tag_body){
         if (!tag_body.isEmpty()) {
             addTagToView(tag_body);
             self_notedialogview.tags.add(tag_body);
@@ -95,6 +92,7 @@ public class NoteDialogView extends DialogFragment{
         self_notedialogview.tagLay = (LinearLayout)main_lay.findViewById(R.id.tagLay);
         self_notedialogview.addTagButton = (Button)main_lay.findViewById(R.id.addTagButton);
         self_notedialogview.deleteTagButton = (Button)main_lay.findViewById(R.id.deleteTagButton);
+        self_notedialogview.notedb = ((MainActivity)getActivity()).notedb;
 
 
         addTagButton.setOnClickListener(new View.OnClickListener() {

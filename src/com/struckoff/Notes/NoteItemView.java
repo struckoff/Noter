@@ -157,15 +157,24 @@ public class NoteItemView extends FrameLayout {
         this.setTitle(title);
         this.id_raw = id;
 
-        for (Tag tag : this.notedb.getTags(this.id_raw)){
-            FrameLayout tag_frame = new FrameLayout(getContext());
-            tag_frame.inflate(getContext(), R.layout.tag_onitem, tag_frame);
-            TextView tag_view = (TextView) tag_frame.findViewById(R.id.tagItem_onNoteItem);
-            tag_view.setText(tag.text);
-            tag_view.setTextAppearance(getContext(), R.style.TagItemStyle_onNoteItem);
-            this.tagLay.addView(tag_frame);
-        }
+        tagRefresh();
 
+    }
+
+    public void tagRefresh(){
+        this.tagLay.removeAllViews();
+        for (Tag tag : this.notedb.getTags(this.id_raw)){
+            this.addTag(tag.text);
+        }
+    }
+
+    public void addTag(String tag_body){
+        FrameLayout tag_frame = new FrameLayout(getContext());
+        tag_frame.inflate(getContext(), R.layout.tag_onitem, tag_frame);
+        TextView tag_view = (TextView) tag_frame.findViewById(R.id.tagItem_onNoteItem);
+        tag_view.setText(tag_body);
+        tag_view.setTextAppearance(getContext(), R.style.TagItemStyle_onNoteItem);
+        this.tagLay.addView(tag_frame);
     }
 
     public void setTitle(String title){

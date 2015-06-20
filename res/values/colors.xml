@@ -4,4 +4,5 @@
     <color name="noteItem_back_background">#EEE</color>
     <color name="noteItem_background">#EEE</color>
     <color name="noteItem_delete_background">#88676767</color>
+    <color name="notsowhite">#f5f5f5</color>
 </resources>

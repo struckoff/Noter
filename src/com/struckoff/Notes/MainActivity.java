@@ -4,8 +4,10 @@ package com.struckoff.Notes;
  * Main Activity (Main screen if app) with notes list and add button
  */
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -13,7 +15,7 @@ import com.melnykov.fab.FloatingActionButton;
 import com.melnykov.fab.ObservableScrollView;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     public NoteDb notedb = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,15 @@ public class MainActivity extends Activity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar, menu);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDefaultDisplayHomeAsUpEnabled(true);
+        return true;
+
+    }
+
     public NoteItemView addNoteToScreen(final Note note) {
         final NoteItemView noteItem = new NoteItemView(this);
         LinearLayout main_lay = (LinearLayout) findViewById(R.id.main_lay);
@@ -65,3 +76,4 @@ public class MainActivity extends Activity {
         notedb.deleteNote(note._id);
     }
 }
+

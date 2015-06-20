@@ -10,6 +10,7 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.KeyEvent;
@@ -51,8 +52,13 @@ public class NoteDialogView extends DialogFragment{
 
     public void addTag(String tag_body){
         if (!tag_body.isEmpty()) {
-            addTagToView(tag_body);
-            self_notedialogview.tags.add(tag_body);
+            TextUtils.SimpleStringSplitter tag_split = new TextUtils.SimpleStringSplitter(',');
+            tag_split.setString(tag_body);
+
+            for (String tag : TextUtils.split(tag_body, "( )*,( )*")){
+                addTagToView(tag);
+                self_notedialogview.tags.add(tag);
+            }
         }
     }
 

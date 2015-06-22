@@ -100,14 +100,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void globalTagListRefresh(){
-        LinearLayout sliderLay = (LinearLayout) this.menu.findViewById(R.id.sliderLay);
+        final LinearLayout sliderLay = (LinearLayout) this.menu.findViewById(R.id.sliderLay);
         sliderLay.removeAllViews();
 
         for (final Tag tag : this.notedb.getTags()){
-            FrameLayout tagItem = new FrameLayout(this);
+            final FrameLayout tagItem = new FrameLayout(this);
             sliderLay.addView(tagItem);
             tagItem.inflate(this, R.layout.tag_onslider, tagItem);
-            TextView tagText = (TextView) tagItem.findViewById(R.id.globalTagText);
+            final TextView tagText = (TextView) tagItem.findViewById(R.id.globalTagText);
             tagText.setText(tag.text);
 
             ImageButton deleteTag = (ImageButton) tagItem.findViewById(R.id.globalDeleteTagButton);
@@ -123,11 +123,35 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     notedb.globalTagDelete(tag._id);
-                                    globalTagListRefresh();
+                                    sliderLay.removeView(tagItem);
                                     NoteItemsRefresh();
                                 }
                             })
                             .setNegativeButton("No", null)
+                            .create();
+                    ad.show();
+                }
+            });
+
+            editTag.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    LinearLayout editLay = new LinearLayout(self_main);
+                    editLay.inflate(self_main, R.layout.global_tag_edit, editLay);
+                    final TextView editText = (TextView)editLay.findViewById(R.id.globalTagEditField);
+                    editText.setText(tag.text);
+
+                    AlertDialog ad = new AlertDialog.Builder(self_main)
+                            .setView(editLay)
+                            .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    notedb.globalTagEdit(tag._id, editText.getText().toString());
+                                    tagText.setText(editText.getText().toString());
+                                    NoteItemsRefresh();
+                                }
+                            })
+                            .setNegativeButton("Cancel", null)
                             .create();
                     ad.show();
 

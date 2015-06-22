@@ -34,18 +34,23 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.struckoff.Notes" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b42562d-d1af-4e73-9957-3ab9b1cb7668" name="Default" comment="Global tag delete">
+    <list default="true" id="3b42562d-d1af-4e73-9957-3ab9b1cb7668" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/global_tag_edit.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/apk/Notes-debug-unaligned.apk" afterPath="$PROJECT_DIR$/build/outputs/apk/Notes-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/apk/Notes-debug.apk" afterPath="$PROJECT_DIR$/build/outputs/apk/Notes-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/build/intermediates/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/build/intermediates/resources/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/struckoff/Notes/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/struckoff/Notes/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/struckoff/Notes/NoteDb.java" afterPath="$PROJECT_DIR$/src/com/struckoff/Notes/NoteDb.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/struckoff/Notes/NoteDialogView.java" afterPath="$PROJECT_DIR$/src/com/struckoff/Notes/NoteDialogView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Notes.iws" afterPath="$PROJECT_DIR$/Notes.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/struckoff/Notes/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/struckoff/Notes/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeResources/debug/merger.xml" />
     </list>
     <ignored path="Notes.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,18 +82,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/struckoff/Notes/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0796875">
+              <caret line="143" column="38" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
               <folding>
                 <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#2756#2782#0" expanded="true" />
                 <element signature="method#SlidingMenuSpawn#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#4115#5008#0" expanded="true" />
-                <element signature="e#4421#4845#0" expanded="true" />
-                <element signature="e#4844#4845#0" expanded="true" />
-                <element signature="e#5007#5008#0" expanded="true" />
+                <element signature="e#3065#3091#0" expanded="true" />
+                <element signature="e#5075#6303#0" expanded="true" />
+                <element signature="e#5659#6136#0" expanded="true" />
+                <element signature="e#6135#6136#0" expanded="true" />
+                <element signature="e#6302#6303#0" expanded="true" />
                 <element signature="method#addNoteToScreen#0;class#MainActivity#0" expanded="false" />
               </folding>
             </state>
@@ -99,25 +106,25 @@
         <entry file="file://$PROJECT_DIR$/src/com/struckoff/Notes/NoteDialogView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
-              <folding>
-                <element signature="e#1110#1112#0" expanded="true" />
-              </folding>
+              <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NoteDb.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NoteDb.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/struckoff/Notes/NoteDb.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="84" column="41" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="127" column="53" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="53" />
               <folding>
                 <element signature="method#NoteDb#0;class#NoteDb#0" expanded="false" />
                 <element signature="method#getNote#0;class#NoteDb#0" expanded="false" />
                 <element signature="method#getNotes#0;class#NoteDb#0" expanded="false" />
-                <element signature="method#updateNotes#0;class#NoteDb#0" expanded="false" />
+                <element signature="method#addTag#0;class#NoteDb#0" expanded="false" />
+                <element signature="method#getTags#0;class#NoteDb#0" expanded="false" />
                 <element signature="method#getTags#1;class#NoteDb#0" expanded="false" />
+                <element signature="method#deleteTag#0;class#NoteDb#0" expanded="false" />
                 <element signature="method#globalTagDelete#0;class#NoteDb#0" expanded="false" />
               </folding>
             </state>
@@ -2118,7 +2125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/res/drawable-hdpi/rounded_corner.xml" />
         <option value="$PROJECT_DIR$/res/drawable/rounded.xml" />
         <option value="$PROJECT_DIR$/res/drawable/rounded_corner.xml" />
         <option value="$PROJECT_DIR$/res/layout/tag.xml" />
@@ -2167,8 +2173,9 @@
         <option value="$PROJECT_DIR$/res/layout/notedialog.xml" />
         <option value="$PROJECT_DIR$/res/layout/tag_onslider.xml" />
         <option value="$PROJECT_DIR$/src/com/struckoff/Notes/NoteDialogView.java" />
-        <option value="$PROJECT_DIR$/src/com/struckoff/Notes/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/com/struckoff/Notes/NoteDb.java" />
+        <option value="$PROJECT_DIR$/res/layout/global_tag_edit.xml" />
+        <option value="$PROJECT_DIR$/src/com/struckoff/Notes/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2648,7 +2655,13 @@
       <option name="project" value="LOCAL" />
       <updated>1435001479209</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Global tag delete">
+      <created>1435003891198</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1435003891198</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2657,7 +2670,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3283582" sideWeight="0.49706745" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.49706745" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25872535" sideWeight="0.5054096" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.50293255" order="7" side_tool="true" content_ui="tabs" />
@@ -2720,29 +2733,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Notes.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/struckoff/Notes/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-          <folding>
-            <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#SlidingMenuSpawn#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#4115#5008#0" expanded="true" />
-            <element signature="e#4421#4845#0" expanded="true" />
-            <element signature="e#4844#4845#0" expanded="true" />
-            <element signature="e#5007#5008#0" expanded="true" />
-            <element signature="method#addNoteToScreen#0;class#MainActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2763,11 +2753,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#2756#2782#0" expanded="true" />
             <element signature="method#SlidingMenuSpawn#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#4115#5008#0" expanded="true" />
-            <element signature="e#4421#4845#0" expanded="true" />
-            <element signature="e#4844#4845#0" expanded="true" />
-            <element signature="e#5007#5008#0" expanded="true" />
+            <element signature="e#3065#3091#0" expanded="true" />
+            <element signature="e#5075#6303#0" expanded="true" />
+            <element signature="e#5659#6136#0" expanded="true" />
+            <element signature="e#6135#6136#0" expanded="true" />
+            <element signature="e#6302#6303#0" expanded="true" />
             <element signature="method#addNoteToScreen#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
@@ -3127,43 +3119,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/struckoff/Notes/NoteDialogView.java">
+    <entry file="jar:///opt/android-sdk/platforms/android-22/android.jar!/android/view/View.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
-          <folding>
-            <element signature="e#1110#1112#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.34860885">
+          <caret line="2433" column="13" selection-start-line="2433" selection-start-column="13" selection-end-line="2433" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/struckoff/Notes/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/struckoff/Notes/NoteDialogView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
-          <folding>
-            <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#SlidingMenuSpawn#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#4115#5008#0" expanded="true" />
-            <element signature="e#4421#4845#0" expanded="true" />
-            <element signature="e#4844#4845#0" expanded="true" />
-            <element signature="e#5007#5008#0" expanded="true" />
-            <element signature="method#addNoteToScreen#0;class#MainActivity#0" expanded="false" />
-          </folding>
+          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/struckoff/Notes/NoteDb.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="84" column="41" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="127" column="53" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="53" />
           <folding>
             <element signature="method#NoteDb#0;class#NoteDb#0" expanded="false" />
             <element signature="method#getNote#0;class#NoteDb#0" expanded="false" />
             <element signature="method#getNotes#0;class#NoteDb#0" expanded="false" />
-            <element signature="method#updateNotes#0;class#NoteDb#0" expanded="false" />
+            <element signature="method#addTag#0;class#NoteDb#0" expanded="false" />
+            <element signature="method#getTags#0;class#NoteDb#0" expanded="false" />
             <element signature="method#getTags#1;class#NoteDb#0" expanded="false" />
+            <element signature="method#deleteTag#0;class#NoteDb#0" expanded="false" />
             <element signature="method#globalTagDelete#0;class#NoteDb#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/global_tag_edit.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/struckoff/Notes/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0796875">
+          <caret line="143" column="38" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
+          <folding>
+            <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#2756#2782#0" expanded="true" />
+            <element signature="method#SlidingMenuSpawn#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#3065#3091#0" expanded="true" />
+            <element signature="e#5075#6303#0" expanded="true" />
+            <element signature="e#5659#6136#0" expanded="true" />
+            <element signature="e#6135#6136#0" expanded="true" />
+            <element signature="e#6302#6303#0" expanded="true" />
+            <element signature="method#addNoteToScreen#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>

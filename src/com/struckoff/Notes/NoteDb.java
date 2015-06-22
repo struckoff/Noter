@@ -121,4 +121,11 @@ public class NoteDb{
         this.cup_withDB.delete(Tag.class, "_id = ?", String.valueOf(tag_id));
         this.cup_withDB.delete(TagsToNotes.class, "tag_id = ?", String.valueOf(tag_id));
     }
+
+    public void globalTagEdit(Long tag_id, String new_tag_body){
+        ContentValues values = new ContentValues(1);
+        values.put("text", new_tag_body);
+        this.cup_withDB.update(Tag.class, values, "_id = ?", String.valueOf(tag_id));
+    }
+
 }

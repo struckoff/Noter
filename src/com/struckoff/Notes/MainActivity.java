@@ -4,6 +4,7 @@ package com.struckoff.Notes;
  * Main Activity (Main screen if app) with notes list and add button
  */
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,12 +12,14 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.melnykov.fab.FloatingActionButton;
 import com.melnykov.fab.ObservableScrollView;
 
 
 public class MainActivity extends AppCompatActivity {
     public NoteDb notedb = null;
+    private SlidingMenu menu = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
         final Button clearButton = (Button) findViewById(R.id.clearButton);
         final ObservableScrollView main_lay_paren = (ObservableScrollView) findViewById(R.id.main_lay_paren);
         addButton.attachToScrollView(main_lay_paren);
+
+        this.menu = new SlidingMenu(this);
+        final int slidingmenuWidth = getResources().getDimensionPixelSize(R.dimen.slidingmenu_width);
+        menu.setMode(SlidingMenu.LEFT);
+        menu.setFadeDegree(0.35f);
+        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+        menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+        menu.setMenu(R.layout.slider_menu);
 
         notedb = new NoteDb(this);
 
@@ -61,7 +72,12 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDefaultDisplayHomeAsUpEnabled(true);
         return true;
+    }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        this.menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
     }
 
     public NoteItemView addNoteToScreen(final Note note) {
@@ -76,4 +92,3 @@ public class MainActivity extends AppCompatActivity {
         notedb.deleteNote(note._id);
     }
 }
-

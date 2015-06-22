@@ -33,6 +33,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/lib" />
+            <option value="$PROJECT_DIR$/lib/SlidingMenu" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -186,6 +188,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Notes.iml" filepath="$PROJECT_DIR$/Notes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib/SlidingMenu/SlidingMenu.iml" filepath="$PROJECT_DIR$/lib/SlidingMenu/SlidingMenu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
@@ -193,15 +197,24 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
-    <library name="appcompat-v7-22.1.0">
+    <library name="appcompat-v7-22.2.0">
+      <ANNOTATIONS>
+        <root url="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/annotations.zip!/" />
+      </ANNOTATIONS>
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.0/jars/classes.jar!/" />
-        <root url="file://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.0/res" />
+        <root url="file://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res" />
+        <root url="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar!/" />
       </CLASSES>
       <JAVADOC />
-      <SOURCES />
+      <SOURCES>
+        <root url="jar:///opt/android-sdk/extras/android/m2repository/com/android/support/appcompat-v7/22.2.0/appcompat-v7-22.2.0-sources.jar!/" />
+      </SOURCES>
     </library>
     <library name="cupboard-2.1.1">
       <CLASSES>
@@ -242,23 +255,37 @@
         <root url="jar:///opt/android-sdk/extras/android/m2repository/com/android/support/recyclerview-v7/21.0.3/recyclerview-v7-21.0.3-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="support-annotations-22.1.0">
+    <library name="support-annotations-22.2.0">
       <CLASSES>
-        <root url="jar:///opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.0/support-annotations-22.1.0.jar!/" />
+        <root url="jar:///opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar:///opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.0/support-annotations-22.1.0-sources.jar!/" />
+        <root url="jar:///opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="support-v4-22.1.0">
+    <library name="support-v4-13.0.0">
       <CLASSES>
-        <root url="file://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.0/res" />
-        <root url="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.0/jars/libs/internal_impl-22.1.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.0/jars/classes.jar!/" />
+        <root url="jar:///opt/android-sdk/extras/android/m2repository/com/android/support/support-v4/13.0.0/support-v4-13.0.0.jar!/" />
       </CLASSES>
       <JAVADOC />
-      <SOURCES />
+      <SOURCES>
+        <root url="jar:///opt/android-sdk/extras/android/m2repository/com/android/support/support-v4/13.0.0/support-v4-13.0.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="support-v4-22.2.0">
+      <ANNOTATIONS>
+        <root url="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/annotations.zip!/" />
+      </ANNOTATIONS>
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar!/" />
+        <root url="file://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/res" />
+        <root url="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar:///opt/android-sdk/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0-sources.jar!/" />
+      </SOURCES>
     </library>
   </component>
 </project>

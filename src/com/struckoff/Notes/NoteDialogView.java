@@ -51,11 +51,11 @@ public class NoteDialogView extends DialogFragment{
     public void Positive() {}
 
     public void addTag(String tag_body){
-        if (!tag_body.isEmpty()) {
-            TextUtils.SimpleStringSplitter tag_split = new TextUtils.SimpleStringSplitter(',');
-            tag_split.setString(tag_body);
+        TextUtils.SimpleStringSplitter tag_split = new TextUtils.SimpleStringSplitter(',');
+        tag_split.setString(tag_body);
 
-            for (String tag : TextUtils.split(tag_body, "( )*,( )*")){
+        for (String tag : TextUtils.split(tag_body, "( )*,( )*")){
+            if (!tag.isEmpty()) {
                 addTagToView(tag);
                 self_notedialogview.tags.add(tag);
             }

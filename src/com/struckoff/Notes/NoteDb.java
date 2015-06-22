@@ -53,6 +53,25 @@ public class NoteDb{
         return result;
     }
 
+    public List<Note> getNotesByTagId(Long tag_id){
+        List<Note> result = new ArrayList<>();
+        List<TagsToNotes> noteids;
+        Cursor tagids_cursor = this.cup_withDB
+                .query(TagsToNotes.class)
+                .withSelection("tag_id = ?", tag_id.toString())
+                .getCursor();
+        noteids = cupboard().withCursor(tagids_cursor).list(TagsToNotes.class);
+        for (TagsToNotes tagtonote : noteids){
+            result.add(
+                    this.cup_withDB
+                            .query(Note.class)
+                            .withSelection("_id = ?", tagtonote.note_id.toString())
+                            .get()
+            );
+        }
+        return result;
+    }
+
     public void updateNotes(Long id, ContentValues values){
         this.cup_withDB.update(Note.class, values, "_id = ?", String.valueOf(id));
     }

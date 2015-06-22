@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public NoteDb notedb = null;
     private SlidingMenu menu = null;
     List<NoteItemView> noteItemViews = null;
+    Long ActiveTag = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
         this.SlidingMenuSpawn();
 
-
         for (Note note : notedb.getNotes()) {
             if (note.state.equals("delete")) {
                 removeNote(note);
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 noteItemViews.add(addNoteToScreen(note));
             }
         }
+
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +94,27 @@ public class MainActivity extends AppCompatActivity {
         this.globalTagListRefresh();
     }
 
+    private void NoteItemsShow(){
+        LinearLayout main_lay = (LinearLayout) findViewById(R.id.main_lay);
+        List<Note> notes = null;
+        main_lay.removeAllViews();
+        if (ActiveTag == null){
+            notes = notedb.getNotes();
+        }
+        else {
+            notes = notedb.getNotesByTagId(ActiveTag);
+            this.noteItemViews.clear();
+        }
+        for (Note note : notes) {
+            this.noteItemViews.add(addNoteToScreen(note));
+        }
+    }
+
+    private void NoteItemsShow(Long tag_id){
+        ActiveTag = tag_id;
+        this.NoteItemsShow();
+    }
+
     private void NoteItemsRefresh(){
         for (NoteItemView note : this.noteItemViews){
             note.tagRefresh();
@@ -114,6 +136,13 @@ public class MainActivity extends AppCompatActivity {
             ImageButton editTag = (ImageButton) tagItem.findViewById(R.id.globalEditTagButton);
             final Context self_main = this;
 
+            tagText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    NoteItemsShow(tag._id);
+                }
+            });
+
             deleteTag.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -124,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     notedb.globalTagDelete(tag._id);
                                     sliderLay.removeView(tagItem);
-                                    NoteItemsRefresh();
+                                    NoteItemsShow();
                                 }
                             })
                             .setNegativeButton("No", null)

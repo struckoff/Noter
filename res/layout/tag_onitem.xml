@@ -8,7 +8,9 @@
     <TextView android:layout_width="wrap_content"
               android:paddingTop="2dp"
               android:layout_height="wrap_content"
-            style="@style/TagItemStyle_onNoteItem"
-            android:id="@+id/tagItem_onNoteItem" android:paddingLeft="4dp" android:paddingRight="4dp"/>
-
+              android:maxLines="1"
+              style="@style/TagItemStyle_onNoteItem"
+              android:id="@+id/tagItem_onNoteItem"
+              android:paddingLeft="4dp"
+              android:paddingRight="4dp"/>
 </FrameLayout>

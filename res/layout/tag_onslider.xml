@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="300dp"
+              android:layout_height="36dp" android:background="@color/notsowhite" android:weightSum="10"
+          android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+    <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/horizontalScrollView" android:layout_weight="10">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="New Text"
+                android:id="@+id/globalTagText" android:layout_weight="8.5" android:textColor="#000"
+                android:textSize="20dp"
+                android:gravity="center_vertical" android:paddingLeft="5dp"/>
+    </HorizontalScrollView>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="end" android:measureAllChildren="false"
+            android:gravity="fill_vertical|center_horizontal">
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/globalEditTagButton" android:src="@drawable/ic_add_circle_black_36dp"
+                android:background="@null" android:layout_alignParentRight="false"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/globalDeleteTagButton" android:src="@drawable/ic_delete_black_36dp"
+                android:background="@null" android:layout_alignParentLeft="false"
+                android:layout_alignParentRight="true"/>
+    </LinearLayout>
+</TableRow>

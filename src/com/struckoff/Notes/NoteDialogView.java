@@ -141,6 +141,7 @@ public class NoteDialogView extends DialogFragment{
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 Log.d("dialog", "Positive");
                                 self_notedialogview.Positive();
+                                ((MainActivity)getActivity()).globalTagList();
                             }
                         }
                 )

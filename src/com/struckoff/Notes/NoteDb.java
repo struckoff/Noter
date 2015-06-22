@@ -42,6 +42,10 @@ public class NoteDb{
         db.execSQL("DELETE FROM " + Note.class.getSimpleName());
     }
 
+    public void clearTags(){
+        db.execSQL("DELETE FROM " + Tag.class.getSimpleName());
+    }
+
     public List<Note> getNotes() {
         List<Note> result;
         Cursor notes = this.cup_withDB.query(Note.class).getCursor();
@@ -96,6 +100,13 @@ public class NoteDb{
         return result;
     }
 
+    public List<Tag> getTags(){
+        List<Tag> result;
+        Cursor tags = this.cup_withDB.query(Tag.class).getCursor();
+        result = cupboard().withCursor(tags).list(Tag.class);
+        return result;
+    }
+
     public void deleteTag(Long note_id, String tag_body){
         Tag tag = this.cup_withDB.query(Tag.class).withSelection("text = ?", tag_body).get();
         if (tag != null){
@@ -105,4 +116,5 @@ public class NoteDb{
             }
         }
     }
+
 }

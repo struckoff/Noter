@@ -56,19 +56,25 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" android:gravity="bottom" android:layout_gravity="bottom"
                 >
-            <LinearLayout
-                    android:orientation="horizontal"
+            <HorizontalScrollView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:gravity="bottom" android:layout_weight=".85"
-                    android:id="@+id/tagLay_onItem">
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:id="@+id/horizontalScrollView2" android:layout_weight=".85">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:gravity="bottom" android:layout_weight=".85"
+                        android:id="@+id/tagLay_onItem">
+                </LinearLayout>
+            </HorizontalScrollView>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:id="@+id/note_date"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignParentEnd="true" android:layout_weight=".15" android:textColor="@color/notsowhite"/>
+                    android:layout_alignParentEnd="true" android:layout_weight=".15" android:textColor="@color/notsowhite"
+                    android:textAlignment="gravity" android:gravity="center_vertical|end" android:textSize="18dp"/>
         </TableRow>
     </FrameLayout>
     <FrameLayout

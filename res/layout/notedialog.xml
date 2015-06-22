@@ -81,7 +81,7 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/tagLay"
-                    android:padding="5dp">
+                    android:padding="3dp">
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

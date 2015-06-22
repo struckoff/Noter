@@ -82,7 +82,7 @@ public class NoteDb{
     }
 
     public List<Tag> getTags(Long note_id){
-        List<Tag> result = new ArrayList<Tag>();
+        List<Tag> result = new ArrayList<>();
         List<TagsToNotes> tagids;
         Cursor tagids_cursor = this.cup_withDB
                 .query(TagsToNotes.class)
@@ -117,4 +117,8 @@ public class NoteDb{
         }
     }
 
+    public void globalTagDelete(Long tag_id){
+        this.cup_withDB.delete(Tag.class, "_id = ?", String.valueOf(tag_id));
+        this.cup_withDB.delete(TagsToNotes.class, "tag_id = ?", String.valueOf(tag_id));
+    }
 }

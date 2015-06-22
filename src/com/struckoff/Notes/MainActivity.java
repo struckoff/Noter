@@ -4,24 +4,28 @@ package com.struckoff.Notes;
  * Main Activity (Main screen if app) with notes list and add button
  */
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.*;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.melnykov.fab.FloatingActionButton;
 import com.melnykov.fab.ObservableScrollView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
     public NoteDb notedb = null;
     private SlidingMenu menu = null;
+    List<NoteItemView> noteItemViews = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         final FloatingActionButton addButton = (FloatingActionButton) findViewById(R.id.addButton);
         final Button clearButton = (Button) findViewById(R.id.clearButton);
         final ObservableScrollView main_lay_paren = (ObservableScrollView) findViewById(R.id.main_lay_paren);
+        noteItemViews = new ArrayList<>();
         addButton.attachToScrollView(main_lay_paren);
         notedb = new NoteDb(this);
 
@@ -40,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             if (note.state.equals("delete")) {
                 removeNote(note);
             } else {
-                addNoteToScreen(note);
+                noteItemViews.add(addNoteToScreen(note));
             }
         }
 
@@ -85,19 +90,49 @@ public class MainActivity extends AppCompatActivity {
         this.menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
         this.menu.setMenu(R.layout.slider_menu);
 
-        this.globalTagList();
+        this.globalTagListRefresh();
     }
 
-    public void globalTagList(){
+    private void NoteItemsRefresh(){
+        for (NoteItemView note : this.noteItemViews){
+            note.tagRefresh();
+        }
+    }
+
+    public void globalTagListRefresh(){
         LinearLayout sliderLay = (LinearLayout) this.menu.findViewById(R.id.sliderLay);
         sliderLay.removeAllViews();
 
-        for (Tag tag : this.notedb.getTags()){
+        for (final Tag tag : this.notedb.getTags()){
             FrameLayout tagItem = new FrameLayout(this);
             sliderLay.addView(tagItem);
             tagItem.inflate(this, R.layout.tag_onslider, tagItem);
             TextView tagText = (TextView) tagItem.findViewById(R.id.globalTagText);
             tagText.setText(tag.text);
+
+            ImageButton deleteTag = (ImageButton) tagItem.findViewById(R.id.globalDeleteTagButton);
+            ImageButton editTag = (ImageButton) tagItem.findViewById(R.id.globalEditTagButton);
+            final Context self_main = this;
+
+            deleteTag.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog ad = new AlertDialog.Builder(self_main)
+                            .setMessage("Remove this tag from all notes ?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    notedb.globalTagDelete(tag._id);
+                                    globalTagListRefresh();
+                                    NoteItemsRefresh();
+                                }
+                            })
+                            .setNegativeButton("No", null)
+                            .create();
+                    ad.show();
+
+                }
+            });
         }
 
 

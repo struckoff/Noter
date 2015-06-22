@@ -33,8 +33,8 @@ public class NoteDialogView extends DialogFragment{
     protected LinearLayout tagLay = null;
     protected Button addTagButton = null;
     protected Button deleteTagButton = null;
-    protected List<String> tags = new ArrayList<String>();
-    protected List<FrameLayout> tagsToDelete = new ArrayList<FrameLayout>();
+    protected List<String> tags = new ArrayList<>();
+    protected List<FrameLayout> tagsToDelete = new ArrayList<>();
     protected View main_lay;
     protected NoteDb notedb = null;
 
@@ -141,17 +141,11 @@ public class NoteDialogView extends DialogFragment{
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 Log.d("dialog", "Positive");
                                 self_notedialogview.Positive();
-                                ((MainActivity)getActivity()).globalTagList();
+                                ((MainActivity)getActivity()).globalTagListRefresh();
                             }
                         }
                 )
-                .setNegativeButton("Cancel",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                Log.d("dialog", "Negative");
-                            }
-                        }
-                )
+                .setNegativeButton("Cancel", null)
                 .setView(main_lay)
                 .create();
 

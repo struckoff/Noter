@@ -118,6 +118,14 @@ public class NoteDb{
         return tag_id;
     }
 
+    public Tag getTag(String selector, String key){
+        return this.cup_withDB.query(Tag.class).withSelection(selector, key).get();
+    }
+
+    public Tag getTag(Long  tag_id){
+        return this.cup_withDB.query(Tag.class).byId(tag_id).get();
+    }
+
     public List<Tag> getTags(Long note_id){
         List<Tag> result = new ArrayList<>();
         List<TagsToNotes> tagids;

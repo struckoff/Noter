@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.*;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.melnykov.fab.FloatingActionButton;
@@ -29,8 +30,11 @@ public class MainActivity extends AppCompatActivity {
     List<NoteItemView> noteItemViews = null;
     Long ActiveTag = null;
     Context self_main = null;
+    String appName = null;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
@@ -38,12 +42,12 @@ public class MainActivity extends AppCompatActivity {
         final Button clearButton = (Button) findViewById(R.id.clearButton);
         final ObservableScrollView main_lay_paren = (ObservableScrollView) findViewById(R.id.main_lay_paren);
 
-
+        appName = getResources().getString(R.string.app_name);
         self_main = this;
         noteItemViews = new ArrayList<>();
         addButton.attachToScrollView(main_lay_paren);
         notedb = new NoteDb(this);
-
+        getSupportActionBar().setTitle(appName + " :ALL");
 
         for (Note note : notedb.getNotes()) {
             if (note.state.equals("delete")) {
@@ -117,10 +121,12 @@ public class MainActivity extends AppCompatActivity {
         main_lay.removeAllViews();
         if (ActiveTag == null){
             notes = notedb.getNotes();
+            getSupportActionBar().setTitle(appName + " :ALL");
         }
         else {
             notes = notedb.getNotesByTagId(ActiveTag);
             this.noteItemViews.clear();
+            getSupportActionBar().setTitle(appName + " :" + notedb.getTag(ActiveTag).text);
         }
         for (Note note : notes) {
             this.noteItemViews.add(addNoteToScreen(note));

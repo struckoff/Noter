@@ -11,6 +11,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -139,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void NoteItemsRefresh(){
+        Log.d("NoteIT", this.noteItemViews.toString());
         for (NoteItemView note : this.noteItemViews){
             note.tagRefresh();
         }
@@ -190,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                     LinearLayout editLay = new LinearLayout(self_main);
                     editLay.inflate(self_main, R.layout.global_tag_edit, editLay);
                     final TextView editText = (TextView)editLay.findViewById(R.id.globalTagEditField);
-                    editText.setText(tag.text);
+                    editText.setText(tagText.getText().toString());
 
                     AlertDialog ad = new AlertDialog.Builder(self_main)
                             .setView(editLay)

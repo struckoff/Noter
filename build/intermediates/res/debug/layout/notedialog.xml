@@ -73,16 +73,28 @@
                 android:background="#f44336"
                 android:layout_gravity="bottom"
                 android:visibility="gone"/>
-        <ScrollView
+        <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/scrollView">
-            <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/tagLay"
-                    android:padding="3dp">
-            </LinearLayout>
-        </ScrollView>
+                android:layout_height="fill_parent">
+            <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tagLay_scroll">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/tagLay"
+                        android:padding="3dp">
+                </LinearLayout>
+            </ScrollView>
+            <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/su_tagLay_scroll" android:background="#607d8b" android:visibility="gone">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                              android:layout_height="wrap_content" android:id="@+id/su_tagLay" android:padding="3dp">
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
     </LinearLayout>
 </LinearLayout><!-- From: file:/home/struckoff/Projects/idea/Notes/res/layout/notedialog.xml -->

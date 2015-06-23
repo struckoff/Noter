@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+                style="@style/TagLayStyle">
+
+    <TextView android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+            style="@style/TagItemStyle_su"
+              android:singleLine="true"
+              android:id="@+id/su_tagItem" android:textColor="#000"/>
+
+</FrameLayout>

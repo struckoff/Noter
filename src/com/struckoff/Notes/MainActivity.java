@@ -13,7 +13,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.*;
@@ -27,9 +26,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public NoteDb notedb = null;
-    private SlidingMenu menu = null;
+    public SlidingMenu menu = null;
     List<NoteItemView> noteItemViews = null;
-    Long ActiveTag = null;
+    List<Long> ActiveTag = new ArrayList<>();
     Context self_main = null;
     String appName = null;
 
@@ -80,24 +79,57 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.actionbar, menu);
+    public boolean onCreateOptionsMenu(final Menu menu_actionBar) {
+//        getMenuInflater().inflate(R.menu.actionbar, menu_actionBar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDefaultDisplayHomeAsUpEnabled(true);
+//        actionBar.setDefaultDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setCustomView(R.layout.actionbar);
+
+        Button showSideBar = (Button) findViewById(R.id.showSideBar);
+        Button showAllNotes = (Button) findViewById(R.id.showAllNotes);
+
+        android.support.v7.widget.Toolbar parent = (android.support.v7.widget.Toolbar) showSideBar.getParent().getParent();
+        parent.setContentInsetsAbsolute(0, 0);
+
+        showSideBar.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (menu.isMenuShowing()){
+                            menu.showContent();
+                        }
+                        else{
+                            menu.showMenu();
+                        }
+                    }
+                });
+
+        showAllNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActiveTag.clear();
+                NoteItemsShow();
+                globalTagListRefresh();
+            }
+        });
 
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-            case R.id.show_all_notes_button:
-                NoteItemsShow(null);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item){
+//        switch (item.getItemId()){
+//            case R.id.show_all_notes_button:
+//                ActiveTag.clear();
+//                NoteItemsShow();
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -119,25 +151,27 @@ public class MainActivity extends AppCompatActivity {
     public void NoteItemsShow(){
         LinearLayout main_lay = (LinearLayout) findViewById(R.id.main_lay);
         List<Note> notes = null;
+        List<Long> note_ids = new ArrayList<>();
         main_lay.removeAllViews();
-        if (ActiveTag == null){
+        if (ActiveTag.isEmpty()){
             notes = notedb.getNotes();
-            getSupportActionBar().setTitle(appName + " :ALL");
         }
         else {
-            notes = notedb.getNotesByTagId(ActiveTag);
+            notes = notedb.getNotesByTagIds(ActiveTag);
             this.noteItemViews.clear();
-            getSupportActionBar().setTitle(appName + " :" + notedb.getTag(ActiveTag).text);
         }
         for (Note note : notes) {
-            this.noteItemViews.add(addNoteToScreen(note));
+            if (!note_ids.contains(note._id)){
+                note_ids.add(note._id);
+                this.noteItemViews.add(addNoteToScreen(note));
+            }
         }
     }
 
-    public void NoteItemsShow(Long tag_id){
-        ActiveTag = tag_id;
-        this.NoteItemsShow();
-    }
+//    public void NoteItemsShow(Long tag_id){
+//        ActiveTag = tag_id;
+//        this.NoteItemsShow();
+//    }
 
     private void NoteItemsRefresh(){
         Log.d("NoteIT", this.noteItemViews.toString());
@@ -163,7 +197,17 @@ public class MainActivity extends AppCompatActivity {
             tagText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    NoteItemsShow(tag._id);
+                    if (ActiveTag.contains(tag._id)){
+                        ActiveTag.remove(tag._id);
+                        ((TableRow)view.getParent().getParent())
+                                .setBackgroundColor(getResources().getColor(R.color.notsowhite));
+                    }
+                    else {
+                        ActiveTag.add(tag._id);
+                        ((TableRow)view.getParent().getParent())
+                                .setBackgroundColor(0xff26a69a);
+                    }
+                    NoteItemsShow();
                 }
             });
 

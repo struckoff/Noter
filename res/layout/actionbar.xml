@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-</LinearLayout>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="TAGS"
+            android:id="@+id/showSideBar" android:layout_alignParentStart="true" style="@android:style/Widget.Material.Button.Borderless"
+            android:gravity="left|center"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="SHOW ALL NOTES"
+            android:id="@+id/showAllNotes" android:layout_alignParentEnd="true"
+            style="@android:style/Widget.Material.Button.Borderless" android:gravity="center|right"/>
+</RelativeLayout>

@@ -215,6 +215,7 @@ public class NoteItemView extends FrameLayout {
     public String getText(){
         return this.text_raw;
     }
+    
     public Date getDate(){
         return this.date_raw;
     }

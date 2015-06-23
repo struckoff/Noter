@@ -34,8 +34,8 @@ public class NoteDb{
         return this.cup_withDB.query(Note.class).withSelection(selector, key).get();
     }
 
-    public Note getNote(Class<Note> note, Long id){
-        return this.cup_withDB.get(note, id);
+    public Note getNote(Long id){
+        return this.cup_withDB.get(Note.class, id);
     }
 
     public void clearNotes(){
@@ -68,6 +68,14 @@ public class NoteDb{
                             .withSelection("_id = ?", tagtonote.note_id.toString())
                             .get()
             );
+        }
+        return result;
+    }
+
+    public List<Long> getNotesIdsByTagId(Long tag_id){
+        List<Long> result = new ArrayList<>();
+        for (Note note : getNotesByTagId(tag_id)){
+            result.add(note._id);
         }
         return result;
     }
@@ -173,4 +181,23 @@ public class NoteDb{
         this.cup_withDB.update(Tag.class, values, "_id = ?", String.valueOf(tag_id));
     }
 
+    public List<Note> getNotesByTagIds(List<Long> tag_ids) {
+        List<Note> result = new ArrayList<>();
+        Boolean f;
+        if (!tag_ids.isEmpty()){
+            for (Long note_id : getNotesIdsByTagId(tag_ids.get(0))){
+                f = true;
+                for (Long tag_id : tag_ids){
+                    if (!getNotesIdsByTagId(tag_id).contains(note_id)){
+                        f = false;
+                        break;
+                    }
+                }
+                if (f){
+                    result.add(getNote(note_id));
+                }
+            }
+        }
+        return result;
+    }
 }

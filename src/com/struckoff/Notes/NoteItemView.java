@@ -151,10 +151,11 @@ public class NoteItemView extends FrameLayout {
 
     }
 
-    public void setData(String title, Date date, String text, Long id){
+    public void setData(String title, Date date, String text, Long id, String state){
         this.setDate(date);
         this.setText(text);
         this.setTitle(title);
+        this.setState(state);
         this.id_raw = id;
 
         tagRefresh();
@@ -187,15 +188,18 @@ public class NoteItemView extends FrameLayout {
         this.text_raw = text;
     }
 
+
     public void setDate(Date date){
         this.date.setText(this.dataFormat(date));
         this.date_raw = date;
     }
 
     public void setState(String state) {
-        ContentValues values = new ContentValues(1);
-        values.put("state", state);
-        this.notedb.updateNotes(this.getItemId(), values);
+        if (this.id_raw != null){
+            ContentValues values = new ContentValues(1);
+            values.put("state", state);
+            this.notedb.updateNotes(this.getItemId(), values);
+        }
 
         if (state.equals("delete")) {
             this.delete_lay.setVisibility(View.VISIBLE);

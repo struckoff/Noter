@@ -1,5 +1,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:Noter="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/action_tags_button"
-          android:title="TAGS"
+    <item android:id="@+id/show_all_notes_button"
+          android:title="ALL"
           Noter:showAsAction="ifRoom"/>
 </menu>

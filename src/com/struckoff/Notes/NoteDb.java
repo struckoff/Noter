@@ -77,7 +77,25 @@ public class NoteDb{
     }
 
     public void deleteNote(Long id) {
-        this.cup_withDB.delete(Note.class, "_id = ?", String.valueOf(id));
+        this.cup_withDB.delete(Note.class, id);
+        Cursor ttn_cursor = this.cup_withDB
+                .query(TagsToNotes.class)
+                .withSelection("note_id = ?", String.valueOf(id))
+                .getCursor();
+
+        List<TagsToNotes> tagsToNotes = cupboard().withCursor(ttn_cursor).list(TagsToNotes.class);
+        this.cup_withDB.delete(TagsToNotes.class, "note_id = ?", String.valueOf(id));
+
+        for (TagsToNotes ttn: tagsToNotes){
+            TagsToNotes ttn0 = this.cup_withDB
+                    .query(TagsToNotes.class)
+                    .withSelection("tag_id = ?", String.valueOf(ttn.tag_id))
+                    .get();
+
+            if (ttn0 == null){
+                this.cup_withDB.delete(Tag.class, ttn.tag_id);
+            }
+        }
     }
 
     public long addTag(Long note_id, String tag_text){

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private SlidingMenu menu = null;
     List<NoteItemView> noteItemViews = null;
     Long ActiveTag = null;
+    Context self_main = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +37,13 @@ public class MainActivity extends AppCompatActivity {
         final FloatingActionButton addButton = (FloatingActionButton) findViewById(R.id.addButton);
         final Button clearButton = (Button) findViewById(R.id.clearButton);
         final ObservableScrollView main_lay_paren = (ObservableScrollView) findViewById(R.id.main_lay_paren);
+
+
+        self_main = this;
         noteItemViews = new ArrayList<>();
         addButton.attachToScrollView(main_lay_paren);
         notedb = new NoteDb(this);
 
-        this.SlidingMenuSpawn();
 
         for (Note note : notedb.getNotes()) {
             if (note.state.equals("delete")) {
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 noteItemViews.add(addNoteToScreen(note));
             }
         }
+        this.SlidingMenuSpawn();
 
 
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +79,19 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.actionbar, menu);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDefaultDisplayHomeAsUpEnabled(true);
+
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.show_all_notes_button:
+                NoteItemsShow(null);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -94,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         this.globalTagListRefresh();
     }
 
-    private void NoteItemsShow(){
+    public void NoteItemsShow(){
         LinearLayout main_lay = (LinearLayout) findViewById(R.id.main_lay);
         List<Note> notes = null;
         main_lay.removeAllViews();
@@ -110,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void NoteItemsShow(Long tag_id){
+    public void NoteItemsShow(Long tag_id){
         ActiveTag = tag_id;
         this.NoteItemsShow();
     }
@@ -134,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
 
             ImageButton deleteTag = (ImageButton) tagItem.findViewById(R.id.globalDeleteTagButton);
             ImageButton editTag = (ImageButton) tagItem.findViewById(R.id.globalEditTagButton);
-            final Context self_main = this;
 
             tagText.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -195,11 +211,12 @@ public class MainActivity extends AppCompatActivity {
         final NoteItemView noteItem = new NoteItemView(this);
         LinearLayout main_lay = (LinearLayout) findViewById(R.id.main_lay);
         main_lay.addView(noteItem);
-        noteItem.setData(note.title, note.timestamp, note.text, note._id);
+        noteItem.setData(note.title, note.timestamp, note.text, note._id, note.state);
         return noteItem;
     }
 
     public void removeNote(Note note) {
         notedb.deleteNote(note._id);
     }
+
 }

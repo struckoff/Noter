@@ -1788,7 +1788,6 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0b0043;
         public static final int action_mode_bar_stub=0x7f0b0042;
         public static final int action_mode_close_button=0x7f0b002b;
-        public static final int action_tags_button=0x7f0b0083;
         public static final int activity_chooser_view_content=0x7f0b002c;
         public static final int addButton=0x7f0b005a;
         public static final int addTagButton=0x7f0b0060;
@@ -1880,6 +1879,7 @@ containing a value of this type.
         public static final int showCustom=0x7f0b0010;
         public static final int showHome=0x7f0b0011;
         public static final int showTitle=0x7f0b0012;
+        public static final int show_all_notes_button=0x7f0b0083;
         public static final int sliderLay=0x7f0b007b;
         public static final int slidingmenumain=0x7f0b007c;
         public static final int split_action_bar=0x7f0b0008;
@@ -1965,7 +1965,6 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int actionbar=0x7f0c0000;
-        public static final int slider_menu=0x7f0c0001;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f050000;

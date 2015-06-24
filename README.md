@@ -9,10 +9,10 @@
 
 ## Little hints
 
-	If you know java you`ll find sources without troubles, but if you don`t you can look at :
-		+ *src/com/struckoff/Notes* here you`ll find some sources (*.java)
-		+ *res/layout/*             here you`ll find some layout configs (*.xml)
-		+ *res/values*              here you`ll find some value aliases and styles (*.xml)
+ If you know java you`ll find sources without troubles, but if you don`t you can look at :
+   + *src/com/struckoff/Notes* here you`ll find some sources (*.java)
+   + *res/layout/*             here you`ll find some layout configs (*.xml)
+   + *res/values*              here you`ll find some value aliases and styles (*.xml)
 
 ## Dependencies (same as in build.gradle)
 

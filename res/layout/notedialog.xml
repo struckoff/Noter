@@ -90,7 +90,7 @@
             <ScrollView
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/su_tagLay_scroll" android:background="#607d8b" android:visibility="gone">
+                    android:id="@+id/su_tagLay_scroll" android:visibility="gone" android:background="#009688">
                 <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
                               android:layout_height="wrap_content" android:id="@+id/su_tagLay" android:padding="3dp">
                 </LinearLayout>

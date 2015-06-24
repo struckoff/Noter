@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
@@ -104,14 +105,28 @@ public class NoteDialogView extends DialogFragment{
         final TextView tagItem = (TextView) lay.findViewById(R.id.su_tagItem);
         suTagLay.addView(lay);
         tagItem.setText(tag_body);
+//        tagItem.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                switch (motionEvent.getAction()){
+//                    case MotionEvent.ACTION_DOWN:
+//                        view.setBackgroundResource(R.color.noteItem_background);
+//                        break;
+//                    case MotionEvent.ACTION_UP:
+//                        view.setBackgroundResource(R.color.notsowhite);
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
         tagItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String tag_text_body = self_notedialogview.tag_text.getText().toString();
-                if (!tag_text_body.equals("")){
+                if (!tag_text_body.equals("")) {
                     tag_text_body += ",";
                 }
-                if (!Arrays.asList(TextUtils.split(tag_text_body, "( )*,( )*")).contains(tag_body)){
+                if (!Arrays.asList(TextUtils.split(tag_text_body, "( )*,( )*")).contains(tag_body)) {
                     self_notedialogview.tag_text.setText(tag_text_body + tag_body);
                 }
             }

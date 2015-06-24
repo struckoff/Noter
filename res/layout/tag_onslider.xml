@@ -30,7 +30,7 @@
         <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/globalEditTagButton" android:src="@drawable/ic_add_circle_black_36dp"
+                android:id="@+id/globalEditTagButton" android:src="@drawable/ic_edit_black_36dp"
                 android:background="@null" android:layout_alignParentRight="false"/>
         <ImageButton
                 android:layout_width="wrap_content"

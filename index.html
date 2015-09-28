@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Noter by struckoff</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Noter</h1>
+        <p class="header"></p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/struckoff/Noter/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/struckoff/Noter/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/struckoff/Noter">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/struckoff">struckoff</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a id="simple-app-for-notes" class="anchor" href="#simple-app-for-notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple app for Notes</h1>
+
+<h2>
+<a id="info" class="anchor" href="#info" aria-hidden="true"><span class="octicon octicon-link"></span></a>Info</h2>
+
+<ul>
+<li>OS                     : Android</li>
+<li>Build system           : Gradle (1.+)</li>
+<li>SDK                    : 22</li>
+<li>Android tested version : 5 (Lolipop)</li>
+</ul>
+
+<h2>
+<a id="little-hints" class="anchor" href="#little-hints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Little hints</h2>
+
+<p>If you know java you`ll find sources without troubles, but if you don`t you can look at :</p>
+
+<ul>
+<li>
+<em>src/com/struckoff/Notes</em> here you`ll find some sources (*.java)</li>
+<li>
+<em>res/layout/</em>             here you`ll find some layout configs (*.xml)</li>
+<li>
+<em>res/values</em>              here you`ll find some value aliases and styles (*.xml)</li>
+</ul>
+
+<h2>
+<a id="dependencies-same-as-in-buildgradle" class="anchor" href="#dependencies-same-as-in-buildgradle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies (same as in build.gradle)</h2>
+
+<div class="highlight highlight-source-groovy-gradle"><pre>    <span class="pl-en">dependencies</span> {
+        compile fileTree(<span class="pl-c1">include</span>: <span class="pl-s"><span class="pl-pds">'</span>*.jar<span class="pl-pds">'</span></span>, <span class="pl-c1">dir</span>: <span class="pl-s"><span class="pl-pds">'</span>libs<span class="pl-pds">'</span></span>)
+        compile <span class="pl-s"><span class="pl-pds">'</span>nl.qbusict:cupboard:2.1.1<span class="pl-pds">'</span></span>
+        compile <span class="pl-s"><span class="pl-pds">'</span>com.melnykov:floatingactionbutton:1.3.0<span class="pl-pds">'</span></span>
+        compile <span class="pl-s"><span class="pl-pds">'</span>com.android.support:appcompat-v7:22.2.0<span class="pl-pds">'</span></span>
+        compile project(<span class="pl-s"><span class="pl-pds">'</span>:lib:SlidingMenu<span class="pl-pds">'</span></span>)
+    }</pre></div>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
